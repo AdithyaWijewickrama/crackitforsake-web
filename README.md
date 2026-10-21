@@ -67,3 +67,15 @@ These files are named by their HackerRank question number (`HR<number>_...`). Th
 | 33 | `HR33_2d_offline_range_point_query.cpp` |
 | 34 | `HR34_divide_and_conquer_monge_partition.cpp` |
 | 40 | `HR40_non_monotonic_range_balancer.cpp` |
+
+## Final submissions added on 21 Oct
+
+Sent as the final contest code for these questions. `HR14` uses C++17 structured bindings, so compile it as C++17.
+
+| Q | File |
+|---|---|
+| 13 | `HR13_one_strike_protocol.cpp` |
+| 14 | `HR14_ghost_ledger_revoked_evidence.cpp` |
+| 19 | `HR19_periodic_diffusion.cpp` |
+| 20 | `HR20_collatz_budget_queries.cpp` |
+| 21 | `HR21_collapsing_markov_attractor.cpp` |

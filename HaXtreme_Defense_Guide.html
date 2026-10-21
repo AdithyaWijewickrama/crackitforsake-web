@@ -118,15 +118,15 @@ table.mini td,table.mini th{border:1px solid var(--line);padding:3px 9px;text-al
 <a href="#q10" class="toc-code"><span class="tn">10</span><span class="tt">Harmonious Inscriptions of Sigiriya</span></a>
 <a href="#q11" class="toc-code"><span class="tn">11</span><span class="tt">The Phantom Currency Arbitrage</span></a>
 <a href="#q12" class="toc-code"><span class="tn">12</span><span class="tt">Cooldown Protocol</span></a>
-<a href="#q13" class="toc-q"><span class="tn">13</span><span class="tt">One Strike Protocol</span></a>
-<a href="#q14" class="toc-q"><span class="tn">14</span><span class="tt">Ghost Ledger: Revoked Evidence</span></a>
+<a href="#q13" class="toc-code"><span class="tn">13</span><span class="tt">One Strike Protocol</span></a>
+<a href="#q14" class="toc-code"><span class="tn">14</span><span class="tt">Ghost Ledger: Revoked Evidence</span></a>
 <a href="#q15" class="toc-code"><span class="tn">15</span><span class="tt">The Residual Ledger New</span></a>
 <a href="#q16" class="toc-code"><span class="tn">16</span><span class="tt">Parity XOR Cipher</span></a>
 <a href="#q17" class="toc-code"><span class="tn">17</span><span class="tt">Paradox Bracket Engine</span></a>
 <a href="#q18" class="toc-code"><span class="tn">18</span><span class="tt">Elliptic Curve Census</span></a>
-<a href="#q19" class="toc-q"><span class="tn">19</span><span class="tt">Periodic Diffusion</span></a>
-<a href="#q20" class="toc-q"><span class="tn">20</span><span class="tt">Collatz Budget Queries</span></a>
-<a href="#q21" class="toc-q"><span class="tn">21</span><span class="tt">The Collapsing Markov Attractor</span></a>
+<a href="#q19" class="toc-code"><span class="tn">19</span><span class="tt">Periodic Diffusion</span></a>
+<a href="#q20" class="toc-code"><span class="tn">20</span><span class="tt">Collatz Budget Queries</span></a>
+<a href="#q21" class="toc-code"><span class="tn">21</span><span class="tt">The Collapsing Markov Attractor</span></a>
 <a href="#q22" class="toc-code"><span class="tn">22</span><span class="tt">The Non-Euclidean Parity Nim</span></a>
 <a href="#q23" class="toc-code"><span class="tn">23</span><span class="tt">The Redefined Metric Tree Diameter</span></a>
 <a href="#q24" class="toc-code"><span class="tn">24</span><span class="tt">The Archive of Kingdoms</span></a>
@@ -158,8 +158,8 @@ table.mini td,table.mini th{border:1px solid var(--line);padding:3px 9px;text-al
       <p>HackerRank එකේ තියෙන පිළිවෙලටම ප්‍රශ්න 40ම මෙතන තියෙනවා. හැම එකකම මුලින්ම ප්‍රශ්නයෙන් අහන්නේ මොකක්ද කියලා සරලව කියනවා. අපේ අන්තිම code එක folder එකේ තියෙන ප්‍රශ්න වලට, ප්‍රධාන අදහස, code එක පියවරෙන් පියවර, viva එකේ අහන්න පුළුවන් ප්‍රශ්න, සහ සම්පූර්ණ code එකත් (click කරලා open කරන්න) තියෙනවා. උඩ තියෙන button එකෙන් English වලට මාරු වෙන්න පුළුවන්.</p>
     </div>
     <div class="stats">
-      <span class="stat"><span class="en">Code explained:</span><span class="si">Code පැහැදිලි කළා:</span> <b>35</b></span>
-      <span class="stat"><span class="en">Question only:</span><span class="si">ප්‍රශ්නය විතරයි:</span> <b>5</b></span>
+      <span class="stat"><span class="en">Code explained:</span><span class="si">Code පැහැදිලි කළා:</span> <b>40</b></span>
+      <span class="stat"><span class="en">Question only:</span><span class="si">ප්‍රශ්නය විතරයි:</span> <b>0</b></span>
     </div>
   </div>
   <section class="card" id="q1">
@@ -2260,26 +2260,142 @@ table.mini td,table.mini th{border:1px solid var(--line);padding:3px 9px;text-al
 </pre></details>
 </section>
 <section class="card" id="q13">
-<div class="card-head"><span class="num">13</span><h2>One Strike Protocol</h2><span class="en badge b-q">Question only</span><span class="si badge b-q">ප්‍රශ්නය විතරයි</span></div>
-<div class="meta">PDF: <code>one-strike-protocol-English.pdf</code></div>
+<div class="card-head"><span class="num">13</span><h2>One Strike Protocol</h2><span class="en badge b-code">Code explained</span><span class="si badge b-code">Code පැහැදිලි කළා</span></div>
+<div class="meta">PDF: <code>one-strike-protocol-English.pdf</code> &nbsp;·&nbsp; <span class="en">Solution: </span><span class="si">Solution එක: </span><code>HR13_one_strike_protocol.cpp</code></div>
 <div class="en"><h3>The question, simply</h3></div><div class="si"><h3>ප්‍රශ්නය සරලව</h3></div>
 <div class="en prose">
 <p>A security system reads a stream of letters from a small alphabet (K letters) and has M <b>suspicious signatures</b> (short words).</p>
 <p>Every time a letter is added, <b>each signature that ends right there</b> gives one <b>strike</b>. Occurrences may overlap, and two different signatures ending at the same place give two strikes.</p>
 <p>A stream is accepted only if the <b>whole stream gives exactly one strike</b>. Count how many different streams of length L are accepted. L can be as large as 10<sup>18</sup>, so print the count mod 1,000,000,007.</p>
 <div class="ex"><b>Example from the PDF:</b> signatures <code>A</code> and <code>BA</code>, stream <code>BA</code>. Both signatures end at the second letter, so that stream gives <b>2</b> strikes and is not accepted.</div>
-<p class="muted">Our code for this question is not in the folder, so there is no code explanation here.</p>
 </div><div class="si prose">
 <p>Security system එකක් පොඩි alphabet එකක (අකුරු K) අකුරු stream එකක් කියවනවා, එයාට <b>සැක සහිත signatures</b> (කෙටි වචන) M ක් තියෙනවා.</p>
 <p>අකුරක් එකතු වෙන හැම වෙලාවකම, <b>හරියටම එතනින් ඉවර වෙන හැම signature එකක්ම</b> එක <b>strike</b> එකක් දෙනවා. Overlap වෙන්න පුළුවන්, එකම තැනින් ඉවර වෙන වෙනස් signatures දෙකක් strikes දෙකක් දෙනවා.</p>
 <p>Stream එකක් පිළිගන්නේ <b>මුළු stream එකෙන්ම හරියටම strike එකයි</b> නම් විතරයි. දිග L තියෙන පිළිගන්න වෙනස් streams කීයක් තියෙනවද ගණන් කරන්න. L 10<sup>18</sup> වෙනකම් ලොකු නිසා mod 1,000,000,007.</p>
 <div class="ex"><b>PDF එකේ උදාහරණය:</b> signatures <code>A</code> සහ <code>BA</code>, stream <code>BA</code>. Signatures දෙකම දෙවෙනි අකුරෙන් ඉවර වෙන නිසා strikes <b>2</b>යි, පිළිගන්නේ නෑ.</div>
-<p class="muted">මේ ප්‍රශ්නයේ අපේ code එක folder එකේ නෑ, ඒ නිසා code විස්තරයක් නෑ.</p>
 </div>
+<div class="en"><h3>Main idea</h3></div><div class="si"><h3>ප්‍රධාන අදහස</h3></div>
+<div class="en prose idea"><p>Put all signatures into an <b>Aho–Corasick automaton</b> (a trie with “fail links”). While reading a stream, the automaton node tells us the longest end of the stream that is still the start of some signature, and <code>cnt[node]</code> tells us <b>how many signatures end right here</b> (strikes from this letter). We only care whether the strikes so far are <b>0 or 1</b> (2 or more is already rejected), so a state is <b>(node, strikes ∈ {0, 1})</b>. Counting streams of length L is then “walks of length L” in this state graph, done with <b>matrix power</b> because L can be 10<sup>18</sup>.</p></div><div class="si prose idea"><p>Signatures ඔක්කොම <b>Aho–Corasick automaton</b> එකකට දානවා (“fail links” තියෙන trie එකක්). Stream එක කියවනකොට automaton node එකෙන් කියනවා stream එකේ අගින් තවමත් signature එකක මුලක් වෙන දිගම කොටස; <code>cnt[node]</code> එකෙන් කියනවා <b>හරියටම මෙතනින් ඉවර වෙන signatures ගණන</b> (මේ අකුරෙන් එන strikes). අපිට වැදගත් වෙන්නේ මෙතෙක් strikes <b>0ද 1ද</b> කියන එක විතරයි (2ක් හෝ වැඩි නම් දැනටමත් reject), ඉතින් state එකක් <b>(node, strikes ∈ {0, 1})</b>. දිග L streams ගණන් කරන එක මේ state graph එකේ “දිග L walks” ගණන් කරන එක. L 10<sup>18</sup> වෙන්න පුළුවන් නිසා <b>matrix power</b> එකෙන් කරනවා.</p></div>
+<div class="en"><h3>How the code works, step by step</h3></div><div class="si"><h3>Code එක වැඩ කරන විදිහ, පියවරෙන් පියවර</h3></div>
+<div class="en"><ol class='steps'><li><b>Read</b> K, M, L and the alphabet. <code>idx[letter]</code> turns each letter into 0..K−1.</li><li><b>Build the trie.</b> <code>go[v][c]</code> is the child of node v by letter c (6 slots, since K ≤ 6). At the end of each signature, <code>cnt[v]++</code>.</li><li><b>Aho–Corasick by BFS.</b> Missing children of the root point back to the root. For each node v (in BFS order), first <code>cnt[v] += cnt[fail[v]]</code>, so cnt now counts every signature that is a suffix of v's string. Then every missing child <code>go[v][c]</code> is filled with <code>go[fail[v]][c]</code>, and real children get their fail link. Now <code>go</code> is a complete automaton: from any node, any letter leads somewhere.</li><li><b>Build the transition matrix T</b> of size 2n (index <code>v</code> = node v with 0 strikes, <code>n + v</code> = node v with 1 strike). For node v and letter c, let u = go[v][c] and w = cnt[u] = strikes this letter makes. If w = 0, both layers just move: 0→0 and 1→1. If w = 1, only 0 strikes → 1 strike is allowed. If w ≥ 2, or 1 strike would become 2, the stream is rejected, so no entry.</li><li><b>Start vector</b> r: 1 way to be at the root with 0 strikes.</li><li><b>Fast power.</b> Read the bits of L: when a bit is 1, <code>r = vecMul(r, T)</code>; then square T with <code>mul(T, T)</code>. After all bits, r[s] = number of length-L streams ending in state s.</li><li><b>Answer</b> = sum of r over the 1-strike layer (<code>r[n + u]</code>), mod 10<sup>9</sup>+7.</li></ol></div><div class="si"><ol class='steps'><li>K, M, L සහ alphabet එක <b>කියවනවා</b>. <code>idx[letter]</code> එකෙන් හැම අකුරක්ම 0..K−1 කරනවා.</li><li><b>Trie එක හදනවා.</b> <code>go[v][c]</code> = node v ගේ, අකුර c න් යන child එක (K ≤ 6 නිසා slots 6). හැම signature එකකම අගදී <code>cnt[v]++</code>.</li><li><b>BFS එකෙන් Aho–Corasick.</b> Root එකේ නැති children ආපහු root එකට. BFS පිළිවෙළට හැම node v එකකටම මුලින් <code>cnt[v] += cnt[fail[v]]</code>, එතකොට cnt එකෙන් v ගේ string එකේ suffix වෙන හැම signature එකක්ම ගණන් වෙනවා. ඊට පස්සේ නැති හැම child <code>go[v][c]</code> එකක්ම <code>go[fail[v]][c]</code> එකෙන් පුරවනවා, ඇත්ත children ලට fail link එක දෙනවා. දැන් <code>go</code> සම්පූර්ණ automaton එකක්: ඕනම node එකක ඉඳන් ඕනම අකුරකින් කොහේ හරි යනවා.</li><li><b>Transition matrix T හදනවා</b>, size 2n (index <code>v</code> = node v, strikes 0; <code>n + v</code> = node v, strike 1). Node v සහ අකුර c ට u = go[v][c], w = cnt[u] = මේ අකුරෙන් එන strikes. w = 0 නම් layers දෙකම යනවා: 0→0, 1→1. w = 1 නම් strikes 0 → strike 1 විතරයි. w ≥ 2 නම්, හෝ strike 1 දෙකක් වෙනවා නම්, stream එක reject, entry එකක් නෑ.</li><li><b>Start vector</b> r: root එකේ strikes 0 එක්ක ඉන්න ක්‍රම 1යි.</li><li><b>Fast power.</b> L ගේ bits කියවනවා: bit එක 1 නම් <code>r = vecMul(r, T)</code>; ඊට පස්සේ <code>mul(T, T)</code> එකෙන් T වර්ග කරනවා. අන්තිමට r[s] = state s එකෙන් ඉවර වෙන දිග L streams ගණන.</li><li><b>උත්තරය</b> = strike 1 layer එකේ r වල එකතුව (<code>r[n + u]</code>), mod 10<sup>9</sup>+7.</li></ol></div>
+<div class="en"><p class='cx'><b>Speed:</b> At most 61 trie nodes (total signature length ≤ 60), so the matrix is at most 122 × 122. About 60 squarings of O(122³) each, roughly 10<sup>8</sup> simple steps.</p></div><div class="si"><p class='cx'><b>වේගය:</b> Trie nodes උපරිම 61 (signatures දිග එකතුව ≤ 60), ඉතින් matrix එක උපරිම 122 × 122. O(122³) squarings 60 ක් විතර, steps 10<sup>8</sup> විතර.</p></div>
+<div class="en"><h3>Likely viva questions</h3></div><div class="si"><h3>Viva එකේ අහන්න පුළුවන් ප්‍රශ්න</h3></div>
+<div class="en"><details class='qa'><summary>Why Aho–Corasick and not checking each signature?</summary><div>The automaton remembers, in one node, everything about the recent letters that matters for any future match. That turns “count strings” into “count walks in a small graph”.</div></details><details class='qa'><summary>Why cnt[v] += cnt[fail[v]]?</summary><div>If a signature is a suffix of the fail node's string, it is also a suffix of v's string, so it also ends at this position. BFS order makes sure fail[v] is finished first.</div></details><details class='qa'><summary>Why only two layers (0 and 1 strikes)?</summary><div>We need exactly one strike in total. Once it reaches 2, the stream can never be accepted, so we simply drop it.</div></details><details class='qa'><summary>Why matrix power?</summary><div>L can be 10<sup>18</sup>. Repeated squaring needs only about 60 matrix multiplications instead of L steps.</div></details><details class='qa'><summary>Can the multiplication overflow?</summary><div>Values are below 10<sup>9</sup>+7, so a product is about 10<sup>18</sup>; with unsigned long long (up to 1.8×10<sup>19</sup>) and a % after each add, it fits.</div></details></div><div class="si"><details class='qa'><summary>Signature එකින් එක check නොකර Aho–Corasick ඇයි?</summary><div>අලුත්ම අකුරු ගැන ඉස්සරහට match වෙන්න වැදගත් හැම දෙයක්ම automaton එක එක node එකක මතක තියාගන්නවා. එතකොට “strings ගණන් කිරීම” “පොඩි graph එකක walks ගණන් කිරීම” වෙනවා.</div></details><details class='qa'><summary>cnt[v] += cnt[fail[v]] ඇයි?</summary><div>Fail node එකේ string එකේ suffix එකක් වෙන signature එකක් v ගේ string එකේත් suffix එකක්, ඉතින් ඒකත් මෙතනින් ඉවර වෙනවා. BFS පිළිවෙළ නිසා fail[v] කලින්ම ඉවරයි.</div></details><details class='qa'><summary>Layers දෙකක් (strikes 0 සහ 1) විතරක් ඇයි?</summary><div>මුළු strikes හරියටම 1ක් වෙන්න ඕනේ. 2 ට ගියාම ආයේ පිළිගන්න බෑ, ඉතින් ඒක අත අරිනවා.</div></details><details class='qa'><summary>Matrix power ඇයි?</summary><div>L 10<sup>18</sup> වෙන්න පුළුවන්. වර්ග කරන ක්‍රමයට matrix ගුණ කිරීම් 60ක් විතරයි ඕනේ.</div></details><details class='qa'><summary>ගුණ කිරීම overflow වෙනවද?</summary><div>අගයන් 10<sup>9</sup>+7 ට අඩුයි, ගුණිතය 10<sup>18</sup> විතර; unsigned long long (1.8×10<sup>19</sup> වෙනකම්) සහ හැම එකතු කිරීමකටම පස්සේ % නිසා ගැලපෙනවා.</div></details></div>
+<details class="code"><summary><span class="en">Show the full code:</span><span class="si">සම්පූර්ණ code එක බලන්න:</span> <code>HR13_one_strike_protocol.cpp</code> (109 <span class="en">lines</span><span class="si">පේළි</span>)</summary><pre><span class="ln">1</span>#include &lt;bits/stdc++.h&gt;
+<span class="ln">2</span>using namespace std;
+<span class="ln">3</span>typedef long long ll;
+<span class="ln">4</span>typedef unsigned long long ull;
+<span class="ln">5</span>const ull MOD = 1000000007ULL;
+<span class="ln">6</span>
+<span class="ln">7</span>typedef vector&lt;vector&lt;ull&gt;&gt; Mat;
+<span class="ln">8</span>
+<span class="ln">9</span>Mat mul(const Mat&amp; A, const Mat&amp; B) {
+<span class="ln">10</span>    int n = A.size();
+<span class="ln">11</span>    Mat C(n, vector&lt;ull&gt;(n, 0));
+<span class="ln">12</span>    for (int i = 0; i &lt; n; i++)
+<span class="ln">13</span>        for (int k = 0; k &lt; n; k++) {
+<span class="ln">14</span>            ull a = A[i][k];
+<span class="ln">15</span>            if (!a) continue;
+<span class="ln">16</span>            for (int j = 0; j &lt; n; j++)
+<span class="ln">17</span>                C[i][j] = (C[i][j] + a * B[k][j]) % MOD;
+<span class="ln">18</span>        }
+<span class="ln">19</span>    return C;
+<span class="ln">20</span>}
+<span class="ln">21</span>
+<span class="ln">22</span>vector&lt;ull&gt; vecMul(const vector&lt;ull&gt;&amp; v, const Mat&amp; T) {
+<span class="ln">23</span>    int n = v.size();
+<span class="ln">24</span>    vector&lt;ull&gt; r(n, 0);
+<span class="ln">25</span>    for (int k = 0; k &lt; n; k++) {
+<span class="ln">26</span>        if (!v[k]) continue;
+<span class="ln">27</span>        for (int j = 0; j &lt; n; j++)
+<span class="ln">28</span>            r[j] = (r[j] + v[k] * T[k][j]) % MOD;
+<span class="ln">29</span>    }
+<span class="ln">30</span>    return r;
+<span class="ln">31</span>}
+<span class="ln">32</span>
+<span class="ln">33</span>int main() {
+<span class="ln">34</span>    int K, M;
+<span class="ln">35</span>    ll L;
+<span class="ln">36</span>    cin &gt;&gt; K &gt;&gt; M &gt;&gt; L;
+<span class="ln">37</span>    string alpha;
+<span class="ln">38</span>    cin &gt;&gt; alpha;
+<span class="ln">39</span>    int idx[256];
+<span class="ln">40</span>    memset(idx, -1, sizeof idx);
+<span class="ln">41</span>    for (int i = 0; i &lt; K; i++) idx[(unsigned char)alpha[i]] = i;
+<span class="ln">42</span>
+<span class="ln">43</span>    // trie
+<span class="ln">44</span>    vector&lt;array&lt;int, 6&gt;&gt; go(1);
+<span class="ln">45</span>    go[0].fill(-1);
+<span class="ln">46</span>    vector&lt;int&gt; cnt(1, 0), fail(1, 0);
+<span class="ln">47</span>    for (int i = 0; i &lt; M; i++) {
+<span class="ln">48</span>        string s;
+<span class="ln">49</span>        cin &gt;&gt; s;
+<span class="ln">50</span>        int v = 0;
+<span class="ln">51</span>        for (char ch : s) {
+<span class="ln">52</span>            int c = idx[(unsigned char)ch];
+<span class="ln">53</span>            if (go[v][c] == -1) {
+<span class="ln">54</span>                int id = go.size();
+<span class="ln">55</span>                go[v][c] = id;
+<span class="ln">56</span>                go.push_back({});
+<span class="ln">57</span>                go.back().fill(-1);
+<span class="ln">58</span>                cnt.push_back(0);
+<span class="ln">59</span>                fail.push_back(0);
+<span class="ln">60</span>            }
+<span class="ln">61</span>            v = go[v][c];
+<span class="ln">62</span>        }
+<span class="ln">63</span>        cnt[v]++;
+<span class="ln">64</span>    }
+<span class="ln">65</span>
+<span class="ln">66</span>    // Aho-Corasick (BFS), cnt[v] = # signatures that are suffixes of node v&#x27;s string
+<span class="ln">67</span>    int n = go.size();
+<span class="ln">68</span>    queue&lt;int&gt; q;
+<span class="ln">69</span>    for (int c = 0; c &lt; K; c++) {
+<span class="ln">70</span>        if (go[0][c] == -1) go[0][c] = 0;
+<span class="ln">71</span>        else { fail[go[0][c]] = 0; q.push(go[0][c]); }
+<span class="ln">72</span>    }
+<span class="ln">73</span>    while (!q.empty()) {
+<span class="ln">74</span>        int v = q.front(); q.pop();
+<span class="ln">75</span>        cnt[v] += cnt[fail[v]];
+<span class="ln">76</span>        for (int c = 0; c &lt; K; c++) {
+<span class="ln">77</span>            int u = go[v][c];
+<span class="ln">78</span>            if (u == -1) go[v][c] = go[fail[v]][c];
+<span class="ln">79</span>            else { fail[u] = go[fail[v]][c]; q.push(u); }
+<span class="ln">80</span>        }
+<span class="ln">81</span>    }
+<span class="ln">82</span>
+<span class="ln">83</span>    // state = (node, strikes so far in {0,1}) -&gt; index s*n + node
+<span class="ln">84</span>    int N = 2 * n;
+<span class="ln">85</span>    Mat T(N, vector&lt;ull&gt;(N, 0));
+<span class="ln">86</span>    for (int v = 0; v &lt; n; v++)
+<span class="ln">87</span>        for (int c = 0; c &lt; K; c++) {
+<span class="ln">88</span>            int u = go[v][c];
+<span class="ln">89</span>            int w = cnt[u];
+<span class="ln">90</span>            if (w == 0) {
+<span class="ln">91</span>                T[v][u]++;
+<span class="ln">92</span>                T[n + v][n + u]++;
+<span class="ln">93</span>            } else if (w == 1) {
+<span class="ln">94</span>                T[v][n + u]++;      // 0 -&gt; 1 strike
+<span class="ln">95</span>            }                       // w&gt;=2, or 1 -&gt; 2: dropped
+<span class="ln">96</span>        }
+<span class="ln">97</span>
+<span class="ln">98</span>    vector&lt;ull&gt; r(N, 0);
+<span class="ln">99</span>    r[0] = 1; // root, 0 strikes
+<span class="ln">100</span>    ll e = L;
+<span class="ln">101</span>    while (e &gt; 0) {
+<span class="ln">102</span>        if (e &amp; 1) r = vecMul(r, T);
+<span class="ln">103</span>        e &gt;&gt;= 1;
+<span class="ln">104</span>        if (e) T = mul(T, T);
+<span class="ln">105</span>    }
+<span class="ln">106</span>    ull ans = 0;
+<span class="ln">107</span>    for (int u = 0; u &lt; n; u++) ans = (ans + r[n + u]) % MOD;
+<span class="ln">108</span>    cout &lt;&lt; ans &lt;&lt; &quot;\n&quot;;
+<span class="ln">109</span>}
+</pre></details>
 </section>
 <section class="card" id="q14">
-<div class="card-head"><span class="num">14</span><h2>Ghost Ledger: Revoked Evidence</h2><span class="en badge b-q">Question only</span><span class="si badge b-q">ප්‍රශ්නය විතරයි</span></div>
-<div class="meta">PDF: <code>ghost-ledger-revoked-evidence-English.pdf</code></div>
+<div class="card-head"><span class="num">14</span><h2>Ghost Ledger: Revoked Evidence</h2><span class="en badge b-code">Code explained</span><span class="si badge b-code">Code පැහැදිලි කළා</span></div>
+<div class="meta">PDF: <code>ghost-ledger-revoked-evidence-English.pdf</code> &nbsp;·&nbsp; <span class="en">Solution: </span><span class="si">Solution එක: </span><code>HR14_ghost_ledger_revoked_evidence.cpp</code></div>
+<div class="en note">This code uses C++17 features (for example <code>auto [ru, pu] = find(...)</code>), so it must be compiled as C++17, not C++11.</div><div class="si note">මේ code එකේ C++17 features තියෙනවා (උදා: <code>auto [ru, pu] = find(...)</code>), ඒ නිසා C++11 නෙවෙයි C++17 විදිහට compile කරන්න ඕනේ.</div>
 <div class="en"><h3>The question, simply</h3></div><div class="si"><h3>ප්‍රශ්නය සරලව</h3></div>
 <div class="en prose">
 <p>Ignore the long story; the real task is about <b>0/1 choices with XOR rules</b>.</p>
@@ -2297,8 +2413,7 @@ table.mini td,table.mini th{border:1px solid var(--line);padding:3px 9px;text-al
 <li><code>ASK u v b</code>: <b>just for this question</b>, also add the claim (u, v, b). Print the <b>minimum total cost</b> and <b>how many assignments reach that minimum</b> (mod 10<sup>9</sup>+7). If the rules contradict each other, print <code>-1 0</code>. The extra claim disappears right after.</li>
 </ul>
 <div class="ex"><b>Example (sample 1):</b> costs (2,8), (5,1), (4,4). <code>ASK 0 0 0</code> (no extra rule): best is x1 = 0 (2), x2 = 1 (1), x3 either (4). Total <b>7</b>, and <b>2</b> ways because x3 can be 0 or 1. After <code>ADD 1 1 2 0</code> (x1 = x2): best is both 0, 2 + 5 + 4 = <b>11</b>, still 2 ways. <code>ASK 1 2 1</code> asks for x1 ≠ x2 on top of x1 = x2, which is impossible: <code>-1 0</code>.</div>
-<p>Notes from the PDF: claims can contradict each other and the input is still valid; several claims can join the same pair; deleting a claim never undoes a COST; the minimum cost can be bigger than 32 bits.</p>
-<p class="muted">Our code for this question is not in the folder, so there is no code explanation here.</p></div><div class="si prose">
+<p>Notes from the PDF: claims can contradict each other and the input is still valid; several claims can join the same pair; deleting a claim never undoes a COST; the minimum cost can be bigger than 32 bits.</p></div><div class="si prose">
 <p>දිග කතාව අමතක කරන්න; ඇත්ත වැඩේ <b>XOR නීති තියෙන 0/1 තේරීම්</b>.</p>
 <ul>
 <li><b>Artifacts</b> n ක් තියෙනවා. හැම එකක්ම <b>0 (clean)</b> හෝ <b>1 (compromised)</b> කරන්න ඕනේ.</li>
@@ -2314,8 +2429,197 @@ table.mini td,table.mini th{border:1px solid var(--line);padding:3px 9px;text-al
 <li><code>ASK u v b</code>: <b>මේ ප්‍රශ්නයට විතරක්</b> claim (u, v, b) ත් එකතු කරලා, <b>අඩුම මුළු වියදම</b> සහ <b>ඒ අඩුම එකට එන assignments ගණන</b> (mod 10<sup>9</sup>+7) print කරන්න. නීති එකිනෙකට පරස්පර නම් <code>-1 0</code>. අමතර claim එක ඊට පස්සේම අතුරුදහන් වෙනවා.</li>
 </ul>
 <div class="ex"><b>උදාහරණය (sample 1):</b> වියදම් (2,8), (5,1), (4,4). <code>ASK 0 0 0</code>: x1 = 0 (2), x2 = 1 (1), x3 ඕනම එකක් (4). එකතුව <b>7</b>, x3 0 හෝ 1 වෙන්න පුළුවන් නිසා ක්‍රම <b>2</b>යි. <code>ADD 1 1 2 0</code> (x1 = x2) ට පස්සේ: දෙකම 0, 2 + 5 + 4 = <b>11</b>, තාම ක්‍රම 2යි. <code>ASK 1 2 1</code> x1 = x2 උඩින් x1 ≠ x2 ඉල්ලනවා, ඒක බෑ: <code>-1 0</code>.</div>
-<p>PDF එකේ සටහන්: claims එකිනෙකට පරස්පර වෙන්න පුළුවන්, input එක තාමත් valid; එකම pair එකට claims කීපයක් තියෙන්න පුළුවන්; claim එකක් delete කළාට COST එකක් ආපහු යන්නේ නෑ; අඩුම වියදම bits 32 ට වඩා ලොකු වෙන්න පුළුවන්.</p>
-<p class="muted">මේ ප්‍රශ්නයේ අපේ code එක folder එකේ නෑ, ඒ නිසා code විස්තරයක් නෑ.</p></div>
+<p>PDF එකේ සටහන්: claims එකිනෙකට පරස්පර වෙන්න පුළුවන්, input එක තාමත් valid; එකම pair එකට claims කීපයක් තියෙන්න පුළුවන්; claim එකක් delete කළාට COST එකක් ආපහු යන්නේ නෑ; අඩුම වියදම bits 32 ට වඩා ලොකු වෙන්න පුළුවන්.</p></div>
+<div class="en"><h3>Main idea</h3></div><div class="si"><h3>ප්‍රධාන අදහස</h3></div>
+<div class="en prose idea"><p><b>Idea 1: a group has only two patterns.</b> Claims join artifacts into groups. Inside a group, once you pick the root's value (0 or 1), every other value is forced by the XOR rules. So each group keeps just two numbers: <code>S[0]</code> = total cost if the root is 0, <code>S[1]</code> = total cost if the root is 1. The best total is <code>G = sum of min(S[0], S[1])</code>, and the number of best assignments is <b>2<sup>T</sup></b>, where T = number of groups with S[0] = S[1] (a tie gives 2 choices). Vertex 0 is a group with S = (0, ∞), so it is always 0.</p>
+<p><b>Idea 2: deletions are handled offline.</b> A DSU can join groups but cannot split them. So we read everything first. Each claim (and each cost pair) is “alive” during a range of ASKs. We place it in a <b>segment tree over the ASK numbers</b>, walk that tree with a DFS, apply items when entering a node and <b>undo</b> them when leaving (a DSU with rollback). This is called “offline dynamic connectivity”.</p></div><div class="si prose idea"><p><b>අදහස 1: කණ්ඩායමකට තියෙන්නේ රටා දෙකයි.</b> Claims වලින් artifacts කණ්ඩායම් වලට එකතු වෙනවා. කණ්ඩායමක් ඇතුලේ root එකේ අගය (0 හෝ 1) තෝරපු ගමන් අනිත් හැම අගයක්ම XOR නීති වලින් තීරණය වෙනවා. ඉතින් හැම කණ්ඩායමකම අංක දෙකක් විතරයි තියාගන්නේ: <code>S[0]</code> = root එක 0 නම් මුළු වියදම, <code>S[1]</code> = root එක 1 නම් මුළු වියදම. හොඳම එකතුව <code>G = min(S[0], S[1]) වල එකතුව</code>, හොඳම assignments ගණන <b>2<sup>T</sup></b>, T = S[0] = S[1] වෙන කණ්ඩායම් ගණන (සමාන නම් තේරීම් 2යි). Vertex 0 කියන්නේ S = (0, ∞) කණ්ඩායමක්, ඉතින් ඒක හැමවෙලේම 0.</p>
+<p><b>අදහස 2: delete කිරීම් offline.</b> DSU එකකට කණ්ඩායම් එකතු කරන්න පුළුවන්, කඩන්න බෑ. ඒ නිසා මුලින්ම ඔක්කොම කියවනවා. හැම claim එකක්ම (සහ හැම cost pair එකක්ම) ASKs පරාසයක් පුරා “ජීවත්” වෙනවා. ඒක <b>ASK අංක උඩ segment tree එකකට</b> දාලා, ඒ tree එක DFS කරනවා: node එකකට ඇතුල් වෙනකොට items දානවා, පිට වෙනකොට <b>undo</b> කරනවා (rollback තියෙන DSU). මේකට කියන්නේ “offline dynamic connectivity”.</p></div>
+<div class="en"><h3>How the code works, step by step</h3></div><div class="si"><h3>Code එක වැඩ කරන විදිහ, පියවරෙන් පියවර</h3></div>
+<div class="en"><ol class='steps'><li><b>Read all operations</b> into <code>ops</code>. <code>askBefore[t]</code> = how many ASKs come before operation t, which turns a time range into a range of ASK numbers.</li><li><b>Work out lifetimes.</b> ADD remembers its start time. DEL closes the claim: it was alive from its start to t−1 (<code>addIv</code>). COST closes the artifact's old cost pair the same way and starts a new one. Claims and cost pairs still alive at the end live until the last operation. Costs are stored as negative codes (<code>~index</code>) so one list can hold both kinds.</li><li><b><code>ins</code></b> puts an item into the O(log k) segment-tree nodes that exactly cover its ASK range.</li><li><b>Start state.</b> Every vertex is its own group (<code>par_</code>, <code>sz_</code>, parity <code>pr_</code> = 0). Every artifact starts at S = (0, 0); its costs arrive later as items. Vertex 0 gets S = (0, ∞). G = 0, T = n ties, <code>pw[i]</code> = 2<sup>i</sup> mod 10<sup>9</sup>+7.</li><li><b><code>find(x)</code></b> climbs to the root and XORs the parities on the way, giving (root, parity of x compared to the root). There is no path compression, because it could not be undone; union by size keeps the climb short (O(log n)).</li><li><b><code>applyEdge</code></b> for claim (u, v, b): d = b ^ pu ^ pv is the XOR the two roots must have. Same root: if d = 1 it is a contradiction, so <code>bad++</code>. Different roots: take both groups out of G and T, hang the smaller root under the bigger one with parity d, merge <code>S[ru][0] += S[rv][d]</code>, <code>S[ru][1] += S[rv][d ^ 1]</code>, and put the new group back into G and T. An undo record is saved first.</li><li><b><code>applyCost</code></b> adds the artifact's pair to its group, swapped if the artifact's parity to the root is 1 (then root 0 means artifact 1).</li><li><b><code>dfs(node)</code></b> applies the node's items. If <code>bad</code> &gt; 0, every ASK under this node answers <code>-1 0</code>. At a leaf it answers the ASK with <code>query</code>. Otherwise it recurses. Before returning it undoes everything it applied (<code>undo</code> restores the saved values).</li><li><b><code>query</code></b> for the temporary claim (u, v, b): same group: if the required XOR is 1 it is impossible, else the answer is (G, 2<sup>T</sup>). Different groups: pretend to merge them: s0, s1 = the merged S values, new minimum = G − min of both + min(s0, s1), new T adjusted for the two old ties and the new one. Nothing is changed, so the claim really is temporary.</li><li><b>Print</b> each ASK's answer in order.</li></ol></div><div class="si"><ol class='steps'><li><b>Operations ඔක්කොම</b> <code>ops</code> එකට කියවනවා. <code>askBefore[t]</code> = operation t ට කලින් එන ASKs ගණන; කාල පරාසයක් ASK අංක පරාසයකට හරවන්නේ මේකෙන්.</li><li><b>ජීවිත කාල හොයනවා.</b> ADD එක ඒකේ පටන් ගත්ත වෙලාව මතක තියාගන්නවා. DEL එකෙන් claim එක වහනවා: ඒක ජීවත් වුණේ පටන් ගත්ත වෙලාවේ ඉඳන් t−1 වෙනකම් (<code>addIv</code>). COST එකත් artifact එකේ පරණ cost pair එක ඒ විදිහටම වහලා අලුත් එකක් පටන් ගන්නවා. අන්තිමට තාම ජීවත් ඒවා අන්තිම operation එක වෙනකම්. Costs negative codes (<code>~index</code>) විදිහට save කරන නිසා එක list එකක දෙවර්ගයම තියෙන්න පුළුවන්.</li><li><b><code>ins</code></b> item එකක්, ඒකේ ASK පරාසය හරියටම ආවරණය කරන segment-tree nodes O(log k) වලට දානවා.</li><li><b>මුල් තත්ත්වය.</b> හැම vertex එකක්ම තනි කණ්ඩායමක් (<code>par_</code>, <code>sz_</code>, parity <code>pr_</code> = 0). හැම artifact එකක්ම S = (0, 0); costs පස්සේ items විදිහට එනවා. Vertex 0 ට S = (0, ∞). G = 0, T = n ties, <code>pw[i]</code> = 2<sup>i</sup> mod 10<sup>9</sup>+7.</li><li><b><code>find(x)</code></b> root එකට යනවා, අතරමඟ parities XOR කරනවා: (root, root එකට සාපේක්ෂව x ගේ parity). Path compression නෑ, මොකද ඒක undo කරන්න බෑ; union by size නිසා යන දුර කෙටියි (O(log n)).</li><li><b><code>applyEdge</code></b> claim (u, v, b) ට: d = b ^ pu ^ pv = roots දෙක අතර තියෙන්න ඕනේ XOR එක. Root එකම නම්: d = 1 නම් පරස්පරයක්, <code>bad++</code>. Roots වෙනස් නම්: කණ්ඩායම් දෙකම G සහ T වලින් අයින් කරලා, පොඩි root එක ලොකු එක යටට parity d එක්ක එල්ලනවා, <code>S[ru][0] += S[rv][d]</code>, <code>S[ru][1] += S[rv][d ^ 1]</code>, අලුත් කණ්ඩායම ආපහු G සහ T වලට දානවා. මුලින්ම undo record එකක් save කරනවා.</li><li><b><code>applyCost</code></b> artifact එකේ pair එක ඒකේ කණ්ඩායමට එකතු කරනවා; root එකට parity 1 නම් මාරු කරලා (එතකොට root 0 කියන්නේ artifact 1).</li><li><b><code>dfs(node)</code></b> node එකේ items දානවා. <code>bad</code> &gt; 0 නම් මේ node එක යටතේ හැම ASK එකකටම <code>-1 0</code>. Leaf එකකදී <code>query</code> එකෙන් ASK එකට උත්තර දෙනවා. නැත්නම් recurse කරනවා. ආපහු යන්න කලින් දාපු හැම දෙයක්ම undo කරනවා.</li><li><b><code>query</code></b> තාවකාලික claim (u, v, b) ට: එකම කණ්ඩායම නම්: ඕනේ XOR එක 1 නම් බෑ, නැත්නම් (G, 2<sup>T</sup>). වෙනස් කණ්ඩායම් නම්: merge කළා වගේ හිතලා s0, s1 = merge කරපු S අගයන්, අලුත් minimum = G − දෙකේ min + min(s0, s1), T ත් ඒ විදිහට හදනවා. කිසි දෙයක් වෙනස් කරන්නේ නැති නිසා claim එක ඇත්තටම තාවකාලිකයි.</li><li><b>හැම ASK එකකම උත්තරය</b> පිළිවෙළට print කරනවා.</li></ol></div>
+<div class="en"><p class='cx'><b>Speed:</b> O((n + q) log q log n): each item goes into O(log q) segment-tree nodes, and each DSU step costs O(log n).</p></div><div class="si"><p class='cx'><b>වේගය:</b> O((n + q) log q log n): හැම item එකක්ම segment-tree nodes O(log q) කට යනවා, හැම DSU step එකක්ම O(log n).</p></div>
+<div class="en"><h3>Likely viva questions</h3></div><div class="si"><h3>Viva එකේ අහන්න පුළුවන් ප්‍රශ්න</h3></div>
+<div class="en"><details class='qa'><summary>Why does each group have only two possible patterns?</summary><div>Every claim fixes the XOR of two values. In a connected group, the value of every member is “root value XOR its parity to the root”, so choosing the root decides everything.</div></details><details class='qa'><summary>Why is the count a power of 2?</summary><div>Groups are independent. A group with S[0] &lt; S[1] (or the reverse) has one best choice; a group with S[0] = S[1] has two. Multiply: 2<sup>(number of ties)</sup>.</div></details><details class='qa'><summary>Why the segment tree over time?</summary><div>A DSU cannot remove an edge. If we know when each claim is alive, we add it only for that ASK range and undo it afterwards, so we never need to delete.</div></details><details class='qa'><summary>Why no path compression?</summary><div>Rollback must restore the DSU exactly. Path compression changes many parents and would be expensive to undo. Union by size alone keeps trees O(log n) deep.</div></details><details class='qa'><summary>How is vertex 0 handled?</summary><div>Its group starts with S = (0, ∞), so the “root = 1” option is never the cheapest; anything joined to 0 is forced accordingly.</div></details></div><div class="si"><details class='qa'><summary>කණ්ඩායමකට රටා දෙකක් විතරක් ඇයි?</summary><div>හැම claim එකක්ම අගයන් දෙකක XOR එක fix කරනවා. සම්බන්ධ කණ්ඩායමක හැම සාමාජිකයෙක්ගෙම අගය = “root අගය XOR root එකට තියෙන parity”, ඉතින් root එක තෝරපු ගමන් ඔක්කොම තීරණය වෙනවා.</div></details><details class='qa'><summary>ගණන 2 ගේ බලයක් වෙන්නේ ඇයි?</summary><div>කණ්ඩායම් එකිනෙකින් ස්වාධීනයි. S[0] ≠ S[1] කණ්ඩායමකට හොඳම තේරීම එකයි; S[0] = S[1] නම් දෙකයි. ගුණ කළාම 2<sup>(ties ගණන)</sup>.</div></details><details class='qa'><summary>කාලය උඩ segment tree එක ඇයි?</summary><div>DSU එකකට edge එකක් අයින් කරන්න බෑ. Claim එකක් ජීවත් කාලය දන්නවා නම් ඒ ASK පරාසයට විතරක් දාලා පස්සේ undo කරනවා, delete කරන්න ඕනේ වෙන්නේ නෑ.</div></details><details class='qa'><summary>Path compression නැත්තේ ඇයි?</summary><div>Rollback එකෙන් DSU එක හරියටම ආපහු හදන්න ඕනේ. Path compression parents ගොඩක් වෙනස් කරනවා, undo කරන්න අමාරුයි. Union by size එකෙන් විතරක් trees O(log n) ගැඹුරට සීමා වෙනවා.</div></details><details class='qa'><summary>Vertex 0 handle කරන්නේ කොහොමද?</summary><div>ඒකේ කණ්ඩායම S = (0, ∞) එක්ක පටන් ගන්නවා, ඉතින් “root = 1” කවදාවත් ලාභම නෑ; 0 ට යා වෙන හැම එකක්ම ඒ අනුව බල කෙරෙනවා.</div></details></div>
+<details class="code"><summary><span class="en">Show the full code:</span><span class="si">සම්පූර්ණ code එක බලන්න:</span> <code>HR14_ghost_ledger_revoked_evidence.cpp</code> (180 <span class="en">lines</span><span class="si">පේළි</span>)</summary><pre><span class="ln">1</span>#include &lt;bits/stdc++.h&gt;
+<span class="ln">2</span>using namespace std;
+<span class="ln">3</span>typedef long long ll;
+<span class="ln">4</span>const ll MOD = 1000000007LL, INF = (ll)1e18;
+<span class="ln">5</span>
+<span class="ln">6</span>struct E { int u, v, b; };
+<span class="ln">7</span>struct C { int i; ll a, b; };
+<span class="ln">8</span>struct Rec { int type, a, b; ll v0, v1, G; int T; };
+<span class="ln">9</span>
+<span class="ln">10</span>int n, q, k;
+<span class="ln">11</span>vector&lt;int&gt; par_, sz_, pr_;
+<span class="ln">12</span>vector&lt;array&lt;ll,2&gt;&gt; S;
+<span class="ln">13</span>ll G; int T, bad;
+<span class="ln">14</span>vector&lt;Rec&gt; st;
+<span class="ln">15</span>vector&lt;E&gt; edges; vector&lt;C&gt; costs;
+<span class="ln">16</span>vector&lt;vector&lt;int&gt;&gt; seg;
+<span class="ln">17</span>vector&lt;int&gt; au, av, ab;
+<span class="ln">18</span>vector&lt;ll&gt; ansS, ansC, pw;
+<span class="ln">19</span>
+<span class="ln">20</span>inline ll mn(int r) { return min(S[r][0], S[r][1]); }
+<span class="ln">21</span>inline int tie(int r) { return S[r][0] == S[r][1]; }
+<span class="ln">22</span>
+<span class="ln">23</span>pair&lt;int,int&gt; find(int x) {
+<span class="ln">24</span>    int p = 0;
+<span class="ln">25</span>    while (par_[x] != x) { p ^= pr_[x]; x = par_[x]; }
+<span class="ln">26</span>    return {x, p};
+<span class="ln">27</span>}
+<span class="ln">28</span>
+<span class="ln">29</span>void applyEdge(const E&amp; e) {
+<span class="ln">30</span>    auto [ru, pu] = find(e.u);
+<span class="ln">31</span>    auto [rv, pv] = find(e.v);
+<span class="ln">32</span>    int d = e.b ^ pu ^ pv;               // required x[ru]^x[rv]
+<span class="ln">33</span>    if (ru == rv) {
+<span class="ln">34</span>        if (d) { st.push_back({0,0,0,0,0,0,0}); bad++; }
+<span class="ln">35</span>        return;
+<span class="ln">36</span>    }
+<span class="ln">37</span>    if (sz_[ru] &lt; sz_[rv]) swap(ru, rv); // ru = new root
+<span class="ln">38</span>    st.push_back({1, rv, ru, S[ru][0], S[ru][1], G, T});
+<span class="ln">39</span>    G -= mn(ru) + mn(rv);
+<span class="ln">40</span>    T -= tie(ru) + tie(rv);
+<span class="ln">41</span>    par_[rv] = ru; pr_[rv] = d; sz_[ru] += sz_[rv];
+<span class="ln">42</span>    S[ru][0] += S[rv][d];
+<span class="ln">43</span>    S[ru][1] += S[rv][d ^ 1];
+<span class="ln">44</span>    G += mn(ru); T += tie(ru);
+<span class="ln">45</span>}
+<span class="ln">46</span>
+<span class="ln">47</span>void applyCost(const C&amp; c) {
+<span class="ln">48</span>    auto [r, p] = find(c.i);
+<span class="ln">49</span>    st.push_back({2, r, 0, S[r][0], S[r][1], G, T});
+<span class="ln">50</span>    G -= mn(r); T -= tie(r);
+<span class="ln">51</span>    S[r][0] += p ? c.b : c.a;
+<span class="ln">52</span>    S[r][1] += p ? c.a : c.b;
+<span class="ln">53</span>    G += mn(r); T += tie(r);
+<span class="ln">54</span>}
+<span class="ln">55</span>
+<span class="ln">56</span>void undo(const Rec&amp; r) {
+<span class="ln">57</span>    if (r.type == 0) { bad--; return; }
+<span class="ln">58</span>    if (r.type == 1) {
+<span class="ln">59</span>        int c = r.a, p = r.b;
+<span class="ln">60</span>        par_[c] = c; pr_[c] = 0; sz_[p] -= sz_[c];
+<span class="ln">61</span>        S[p] = {r.v0, r.v1};
+<span class="ln">62</span>    } else {
+<span class="ln">63</span>        S[r.a] = {r.v0, r.v1};
+<span class="ln">64</span>    }
+<span class="ln">65</span>    G = r.G; T = r.T;
+<span class="ln">66</span>}
+<span class="ln">67</span>
+<span class="ln">68</span>void query(int j) {
+<span class="ln">69</span>    auto [ru, pu] = find(au[j]);
+<span class="ln">70</span>    auto [rv, pv] = find(av[j]);
+<span class="ln">71</span>    int d = ab[j] ^ pu ^ pv;
+<span class="ln">72</span>    if (ru == rv) {
+<span class="ln">73</span>        if (d) { ansS[j] = -1; ansC[j] = 0; }
+<span class="ln">74</span>        else   { ansS[j] = G;  ansC[j] = pw[T]; }
+<span class="ln">75</span>    } else {
+<span class="ln">76</span>        ll s0 = S[ru][0] + S[rv][d], s1 = S[ru][1] + S[rv][d ^ 1];
+<span class="ln">77</span>        ansS[j] = G - mn(ru) - mn(rv) + min(s0, s1);
+<span class="ln">78</span>        int nt = T - tie(ru) - tie(rv) + (s0 == s1);
+<span class="ln">79</span>        ansC[j] = pw[nt];
+<span class="ln">80</span>    }
+<span class="ln">81</span>}
+<span class="ln">82</span>
+<span class="ln">83</span>void ins(int node, int l, int r, int ql, int qr, int code) {
+<span class="ln">84</span>    if (ql &lt;= l &amp;&amp; r &lt;= qr) { seg[node].push_back(code); return; }
+<span class="ln">85</span>    int m = (l + r) / 2;
+<span class="ln">86</span>    if (ql &lt;= m) ins(2*node, l, m, ql, qr, code);
+<span class="ln">87</span>    if (qr &gt; m)  ins(2*node+1, m+1, r, ql, qr, code);
+<span class="ln">88</span>}
+<span class="ln">89</span>
+<span class="ln">90</span>void dfs(int node, int l, int r) {
+<span class="ln">91</span>    size_t mark = st.size();
+<span class="ln">92</span>    for (int code : seg[node]) {
+<span class="ln">93</span>        if (code &gt;= 0) applyEdge(edges[code]);
+<span class="ln">94</span>        else applyCost(costs[~code]);
+<span class="ln">95</span>    }
+<span class="ln">96</span>    if (bad) {
+<span class="ln">97</span>        for (int j = l; j &lt;= r; j++) { ansS[j] = -1; ansC[j] = 0; }
+<span class="ln">98</span>    } else if (l == r) {
+<span class="ln">99</span>        query(l);
+<span class="ln">100</span>    } else {
+<span class="ln">101</span>        int m = (l + r) / 2;
+<span class="ln">102</span>        dfs(2*node, l, m);
+<span class="ln">103</span>        dfs(2*node+1, m+1, r);
+<span class="ln">104</span>    }
+<span class="ln">105</span>    while (st.size() &gt; mark) { undo(st.back()); st.pop_back(); }
+<span class="ln">106</span>}
+<span class="ln">107</span>
+<span class="ln">108</span>int main() {
+<span class="ln">109</span>    scanf(&quot;%d %d&quot;, &amp;n, &amp;q);
+<span class="ln">110</span>    vector&lt;array&lt;ll,2&gt;&gt; cur(n + 1);
+<span class="ln">111</span>    for (int i = 1; i &lt;= n; i++) scanf(&quot;%lld %lld&quot;, &amp;cur[i][0], &amp;cur[i][1]);
+<span class="ln">112</span>
+<span class="ln">113</span>    struct Op { int t, a, b, c, d; };
+<span class="ln">114</span>    vector&lt;Op&gt; ops(q);
+<span class="ln">115</span>    vector&lt;int&gt; askBefore(q + 2, 0);
+<span class="ln">116</span>    char s[8];
+<span class="ln">117</span>    for (int t = 0; t &lt; q; t++) {
+<span class="ln">118</span>        scanf(&quot;%s&quot;, s);
+<span class="ln">119</span>        if (s[0] == &#x27;A&#x27; &amp;&amp; s[1] == &#x27;D&#x27;) { ops[t].t = 0; scanf(&quot;%d %d %d %d&quot;, &amp;ops[t].a, &amp;ops[t].b, &amp;ops[t].c, &amp;ops[t].d); }
+<span class="ln">120</span>        else if (s[0] == &#x27;D&#x27;) { ops[t].t = 1; scanf(&quot;%d&quot;, &amp;ops[t].a); }
+<span class="ln">121</span>        else if (s[0] == &#x27;C&#x27;) { ops[t].t = 2; scanf(&quot;%d %d %d&quot;, &amp;ops[t].a, &amp;ops[t].b, &amp;ops[t].c); }
+<span class="ln">122</span>        else { ops[t].t = 3; scanf(&quot;%d %d %d&quot;, &amp;ops[t].a, &amp;ops[t].b, &amp;ops[t].c); }
+<span class="ln">123</span>    }
+<span class="ln">124</span>    for (int t = 0; t &lt; q; t++) askBefore[t + 1] = askBefore[t] + (ops[t].t == 3);
+<span class="ln">125</span>    k = askBefore[q];
+<span class="ln">126</span>
+<span class="ln">127</span>    au.resize(k); av.resize(k); ab.resize(k);
+<span class="ln">128</span>    ansS.assign(k, 0); ansC.assign(k, 0);
+<span class="ln">129</span>    seg.assign(4 * max(k, 1), {});
+<span class="ln">130</span>
+<span class="ln">131</span>    auto addIv = [&amp;](int l, int r, int code) {
+<span class="ln">132</span>        if (r &lt; l) return;
+<span class="ln">133</span>        int lo = askBefore[l], hi = askBefore[r + 1] - 1;
+<span class="ln">134</span>        if (lo &gt; hi) return;
+<span class="ln">135</span>        ins(1, 0, k - 1, lo, hi, code);
+<span class="ln">136</span>    };
+<span class="ln">137</span>
+<span class="ln">138</span>    vector&lt;int&gt; eIdx(q + 1, -1), eStart(q + 1, 0);
+<span class="ln">139</span>    vector&lt;int&gt; cStart(n + 1, 0);
+<span class="ln">140</span>    int aj = 0;
+<span class="ln">141</span>    for (int t = 0; t &lt; q; t++) {
+<span class="ln">142</span>        Op&amp; o = ops[t];
+<span class="ln">143</span>        if (o.t == 0) {                       // ADD id u v b
+<span class="ln">144</span>            eIdx[o.a] = edges.size();
+<span class="ln">145</span>            edges.push_back({o.b, o.c, o.d});
+<span class="ln">146</span>            eStart[o.a] = t;
+<span class="ln">147</span>        } else if (o.t == 1) {                // DEL id
+<span class="ln">148</span>            addIv(eStart[o.a], t - 1, eIdx[o.a]);
+<span class="ln">149</span>            eIdx[o.a] = -1;
+<span class="ln">150</span>        } else if (o.t == 2) {                // COST i a b
+<span class="ln">151</span>            int i = o.a;
+<span class="ln">152</span>            costs.push_back({i, cur[i][0], cur[i][1]});
+<span class="ln">153</span>            addIv(cStart[i], t - 1, ~(int)(costs.size() - 1));
+<span class="ln">154</span>            cur[i] = {o.b, o.c}; cStart[i] = t;
+<span class="ln">155</span>        } else {                              // ASK
+<span class="ln">156</span>            au[aj] = o.a; av[aj] = o.b; ab[aj] = o.c; aj++;
+<span class="ln">157</span>        }
+<span class="ln">158</span>    }
+<span class="ln">159</span>    for (int id = 1; id &lt;= q; id++)
+<span class="ln">160</span>        if (eIdx[id] &gt;= 0) addIv(eStart[id], q - 1, eIdx[id]);
+<span class="ln">161</span>    for (int i = 1; i &lt;= n; i++) {
+<span class="ln">162</span>        costs.push_back({i, cur[i][0], cur[i][1]});
+<span class="ln">163</span>        addIv(cStart[i], q - 1, ~(int)(costs.size() - 1));
+<span class="ln">164</span>    }
+<span class="ln">165</span>
+<span class="ln">166</span>    par_.resize(n + 1); sz_.assign(n + 1, 1); pr_.assign(n + 1, 0);
+<span class="ln">167</span>    iota(par_.begin(), par_.end(), 0);
+<span class="ln">168</span>    S.assign(n + 1, {0, 0});
+<span class="ln">169</span>    S[0] = {0, INF};                          // vertex 0 forced to state 0
+<span class="ln">170</span>    G = 0; T = n; bad = 0;                    // vertices 1..n start tied at (0,0)
+<span class="ln">171</span>    pw.assign(n + 2, 1);
+<span class="ln">172</span>    for (int i = 1; i &lt;= n + 1; i++) pw[i] = pw[i-1] * 2 % MOD;
+<span class="ln">173</span>
+<span class="ln">174</span>    dfs(1, 0, k - 1);
+<span class="ln">175</span>
+<span class="ln">176</span>    for (int j = 0; j &lt; k; j++) {
+<span class="ln">177</span>        if (ansS[j] &lt; 0) puts(&quot;-1 0&quot;);
+<span class="ln">178</span>        else printf(&quot;%lld %lld\n&quot;, ansS[j], ansC[j]);
+<span class="ln">179</span>    }
+<span class="ln">180</span>}
+</pre></details>
 </section>
 <section class="card" id="q15">
 <div class="card-head"><span class="num">15</span><h2>The Residual Ledger New</h2><span class="en badge b-code">Code explained</span><span class="si badge b-code">Code පැහැදිලි කළා</span></div>
@@ -3028,48 +3332,197 @@ table.mini td,table.mini th{border:1px solid var(--line);padding:3px 9px;text-al
 </pre></details>
 </section>
 <section class="card" id="q19">
-<div class="card-head"><span class="num">19</span><h2>Periodic Diffusion</h2><span class="en badge b-q">Question only</span><span class="si badge b-q">ප්‍රශ්නය විතරයි</span></div>
-<div class="meta">PDF: <code>periodic-diffusion-English.pdf</code></div>
+<div class="card-head"><span class="num">19</span><h2>Periodic Diffusion</h2><span class="en badge b-code">Code explained</span><span class="si badge b-code">Code පැහැදිලි කළා</span></div>
+<div class="meta">PDF: <code>periodic-diffusion-English.pdf</code> &nbsp;·&nbsp; <span class="en">Solution: </span><span class="si">Solution එක: </span><code>HR19_periodic_diffusion.cpp</code></div>
 <div class="en"><h3>The question, simply</h3></div><div class="si"><h3>ප්‍රශ්නය සරලව</h3></div>
 <div class="en prose">
 <p>N cells sit in a <b>ring</b> (cell N−1 is next to cell 0). Each cell holds a number mod P = 998244353.</p>
 <p>In one time step, <b>every cell at the same time</b> becomes the <b>average of itself and its two neighbours</b>: <code>new[i] = (a[i−1] + a[i] + a[i+1]) × 332748118 mod P</code>. The number 332748118 is “1/3” mod P, so this really is dividing by 3.</p>
 <p>Print all N cells after T steps. T can be as large as 10<sup>18</sup>, so you cannot simulate step by step.</p>
-<div class="ex"><b>Example:</b> N = 3, T = 1, cells [3, 0, 0]. Every cell's neighbourhood is the whole ring, so each becomes (3 + 0 + 0) / 3 = 1. Output <b>1 1 1</b>.</div>
-<p class="muted">Our code for this question is not in the folder, so there is no code explanation here.</p></div><div class="si prose">
+<div class="ex"><b>Example:</b> N = 3, T = 1, cells [3, 0, 0]. Every cell's neighbourhood is the whole ring, so each becomes (3 + 0 + 0) / 3 = 1. Output <b>1 1 1</b>.</div></div><div class="si prose">
 <p>Cells N ක් <b>වළල්ලක්</b> විදිහට තියෙනවා (cell N−1, cell 0 ට ළඟයි). හැම cell එකකම අංකයක් තියෙනවා (mod P = 998244353).</p>
 <p>එක time step එකකදී, <b>හැම cell එකක්ම එකම වෙලාවේ</b> <b>තමන්ගේයි දෙපැත්තේ අල්ලපු cells දෙකේයි සාමාන්‍යය</b> බවට පත් වෙනවා: <code>new[i] = (a[i−1] + a[i] + a[i+1]) × 332748118 mod P</code>. 332748118 කියන්නේ mod P වල “1/3”, ඉතින් ඇත්තටම 3 න් බෙදනවා.</p>
 <p>Steps T කට පස්සේ cells N ම print කරන්න. T 10<sup>18</sup> වෙනකම් ලොකු නිසා එක step එක ගානේ simulate කරන්න බෑ.</p>
-<div class="ex"><b>උදාහරණය:</b> N = 3, T = 1, [3, 0, 0]. හැම cell එකකටම මුළු වළල්ලම අල්ලපු නිසා හැම එකක්ම (3 + 0 + 0) / 3 = 1. Output <b>1 1 1</b>.</div>
-<p class="muted">මේ ප්‍රශ්නයේ අපේ code එක folder එකේ නෑ, ඒ නිසා code විස්තරයක් නෑ.</p></div>
+<div class="ex"><b>උදාහරණය:</b> N = 3, T = 1, [3, 0, 0]. හැම cell එකකටම මුළු වළල්ලම අල්ලපු නිසා හැම එකක්ම (3 + 0 + 0) / 3 = 1. Output <b>1 1 1</b>.</div></div>
+<div class="en"><h3>Main idea</h3></div><div class="si"><h3>ප්‍රධාන අදහස</h3></div>
+<div class="en prose idea"><p>One step makes every cell <code>(left + self + right) / 3</code>. That is the same as a <b>cyclic convolution</b> of the array with a small “kernel” that has 1/3 at offsets −1, 0, +1. Doing T steps = convolving with that kernel <b>T times</b>, which is one convolution with <b>kernel<sup>T</sup></b>. We compute kernel<sup>T</sup> with <b>fast power</b> (square and multiply), where “multiply” means cyclic convolution. N ≤ 512, so an O(N²) convolution is fine.</p></div><div class="si prose idea"><p>එක step එකකින් හැම cell එකක්ම <code>(වම + තමන් + දකුණ) / 3</code> වෙනවා. ඒක array එක, offsets −1, 0, +1 වල 1/3 තියෙන පොඩි “kernel” එකක් එක්ක කරන <b>cyclic convolution</b> එකකට සමානයි. Steps T ක් = ඒ kernel එකෙන් <b>T පාරක්</b> convolve කරන එක = <b>kernel<sup>T</sup></b> එක්ක එක convolution එකක්. kernel<sup>T</sup> <b>fast power</b> එකෙන් (වර්ග කරලා ගුණ කරලා) හොයනවා, මෙතන “ගුණ කිරීම” කියන්නේ cyclic convolution. N ≤ 512 නිසා O(N²) convolution එකක් ඇති.</p></div>
+<div class="en"><h3>How the code works, step by step</h3></div><div class="si"><h3>Code එක වැඩ කරන විදිහ, පියවරෙන් පියවර</h3></div>
+<div class="en"><ol class='steps'><li><b>Read</b> N, T and the array a.</li><li><b><code>mul(a, b)</code></b> is cyclic convolution: for every i and j, add <code>a[i] × b[j]</code> into position <code>(i + j) mod N</code>, all mod P.</li><li><b>Build the kernel</b> <code>base</code>: inv3 (= 1/3 mod P) at positions N−1, 0 and 1. It uses <code>+=</code> so tiny rings work: with N = 1 all three land on the same cell (3 × 1/3 = 1), with N = 2 positions −1 and +1 are the same cell.</li><li><b>Start with the identity</b> <code>res</code> = 1 at position 0 (convolving with it changes nothing).</li><li><b>Fast power:</b> while T &gt; 0, if the lowest bit is 1 then <code>res = mul(res, base)</code>; square <code>base</code>; shift T right.</li><li><b>Apply it once:</b> <code>out = mul(res, a)</code> and print the N values.</li></ol></div><div class="si"><ol class='steps'><li>N, T සහ array a <b>කියවනවා</b>.</li><li><b><code>mul(a, b)</code></b> = cyclic convolution: හැම i, j එකකටම <code>a[i] × b[j]</code> එක position <code>(i + j) mod N</code> එකට එකතු කරනවා, ඔක්කොම mod P.</li><li><b>Kernel එක හදනවා</b> <code>base</code>: positions N−1, 0, 1 වල inv3 (= mod P වල 1/3). පොඩි වළලු වලට වැඩ කරන්න <code>+=</code> පාවිච්චි කරනවා: N = 1 නම් තුනම එකම cell එකට (3 × 1/3 = 1), N = 2 නම් −1 සහ +1 එකම cell එක.</li><li><b>Identity එකෙන් පටන් ගන්නවා</b> <code>res</code> = position 0 දී 1 (ඒකෙන් convolve කළාම මුකුත් වෙනස් වෙන්නේ නෑ).</li><li><b>Fast power:</b> T &gt; 0 වෙනකම්, අඩුම bit එක 1 නම් <code>res = mul(res, base)</code>; <code>base</code> වර්ග කරනවා; T දකුණට shift කරනවා.</li><li><b>එක පාරක් යොදනවා:</b> <code>out = mul(res, a)</code>, අගයන් N print කරනවා.</li></ol></div>
+<div class="en"><p class='cx'><b>Speed:</b> About 2 × 60 convolutions of O(N²) = 2.6×10<sup>5</sup> each, roughly 3×10<sup>7</sup> steps for N = 512, T = 10<sup>18</sup>.</p></div><div class="si"><p class='cx'><b>වේගය:</b> O(N²) = 2.6×10<sup>5</sup> convolutions 2 × 60 ක් විතර, N = 512, T = 10<sup>18</sup> ට steps 3×10<sup>7</sup> විතර.</p></div>
+<div class="en"><h3>Likely viva questions</h3></div><div class="si"><h3>Viva එකේ අහන්න පුළුවන් ප්‍රශ්න</h3></div>
+<div class="en"><details class='qa'><summary>Why is one step a convolution?</summary><div>Every cell uses the same rule with the same weights on its neighbours, and the ring wraps around. A “same weights everywhere, wrapping” rule is exactly a cyclic convolution.</div></details><details class='qa'><summary>Why can we power the kernel instead of the array?</summary><div>Convolution is associative: doing it with k twice is the same as once with k⊛k. So T steps = one convolution with k<sup>T</sup>, and k<sup>T</sup> can be built by repeated squaring.</div></details><details class='qa'><summary>Why not a full N × N matrix power?</summary><div>That would be O(N³) per multiplication. The step matrix is circulant (every row is a shift of the first), so we only keep one row: O(N²).</div></details><details class='qa'><summary>Why multiply by 332748118?</summary><div>It is the inverse of 3 mod 998244353 (3 × 332748118 ≡ 1), so it is how we divide by 3 in modular arithmetic.</div></details></div><div class="si"><details class='qa'><summary>එක step එකක් convolution එකක් වෙන්නේ ඇයි?</summary><div>හැම cell එකක්ම අල්ලපු ඒවට එකම weights එක්ක එකම නීතිය පාවිච්චි කරනවා, වළල්ල වටේට යනවා. “හැමතැනම එකම weights, වටේට යන” නීතියක් කියන්නේ හරියටම cyclic convolution එකක්.</div></details><details class='qa'><summary>Array එක වෙනුවට kernel එකේ බලය ගන්න පුළුවන් ඇයි?</summary><div>Convolution associative: k එක්ක දෙපාරක් කරන එක k⊛k එක්ක එක පාරක් කරන එකට සමානයි. ඉතින් steps T = k<sup>T</sup> එක්ක එක convolution, k<sup>T</sup> වර්ග කරමින් හදන්න පුළුවන්.</div></details><details class='qa'><summary>සම්පූර්ණ N × N matrix power එකක් නැත්තේ ඇයි?</summary><div>ඒකට ගුණ කිරීමකට O(N³). Step matrix එක circulant (හැම row එකක්ම පළවෙනි එකේ shift එකක්), ඉතින් එක row එකක් විතරක් තියාගන්නවා: O(N²).</div></details><details class='qa'><summary>332748118 න් ගුණ කරන්නේ ඇයි?</summary><div>ඒක mod 998244353 වල 3 ගේ inverse එක (3 × 332748118 ≡ 1), mod ගණිතයේ 3 න් බෙදන ක්‍රමය.</div></details></div>
+<details class="code"><summary><span class="en">Show the full code:</span><span class="si">සම්පූර්ණ code එක බලන්න:</span> <code>HR19_periodic_diffusion.cpp</code> (44 <span class="en">lines</span><span class="si">පේළි</span>)</summary><pre><span class="ln">1</span>#include &lt;bits/stdc++.h&gt;
+<span class="ln">2</span>using namespace std;
+<span class="ln">3</span>typedef unsigned long long ull;
+<span class="ln">4</span>const ull P = 998244353ULL;
+<span class="ln">5</span>int N;
+<span class="ln">6</span>
+<span class="ln">7</span>vector&lt;ull&gt; mul(const vector&lt;ull&gt;&amp; a, const vector&lt;ull&gt;&amp; b) {
+<span class="ln">8</span>    vector&lt;ull&gt; c(N, 0);
+<span class="ln">9</span>    for (int i = 0; i &lt; N; i++) {
+<span class="ln">10</span>        if (!a[i]) continue;
+<span class="ln">11</span>        for (int j = 0; j &lt; N; j++) {
+<span class="ln">12</span>            int k = i + j; if (k &gt;= N) k -= N;
+<span class="ln">13</span>            c[k] = (c[k] + a[i] * b[j]) % P;
+<span class="ln">14</span>        }
+<span class="ln">15</span>    }
+<span class="ln">16</span>    return c;
+<span class="ln">17</span>}
+<span class="ln">18</span>
+<span class="ln">19</span>int main() {
+<span class="ln">20</span>    ull T;
+<span class="ln">21</span>    scanf(&quot;%d %llu&quot;, &amp;N, &amp;T);
+<span class="ln">22</span>    if (N &lt;= 0) return 0;
+<span class="ln">23</span>    vector&lt;ull&gt; a(N);
+<span class="ln">24</span>    for (auto&amp; x : a) scanf(&quot;%llu&quot;, &amp;x);
+<span class="ln">25</span>
+<span class="ln">26</span>    const ull inv3 = 332748118ULL;
+<span class="ln">27</span>    vector&lt;ull&gt; base(N, 0), res(N, 0);
+<span class="ln">28</span>    // += handles tiny N where offsets overlap
+<span class="ln">29</span>    base[(N - 1) % N] += inv3;
+<span class="ln">30</span>    base[0]           += inv3;
+<span class="ln">31</span>    base[1 % N]       += inv3;
+<span class="ln">32</span>    for (auto&amp; x : base) x %= P;
+<span class="ln">33</span>
+<span class="ln">34</span>    res[0] = 1;                      // identity (delta at 0)
+<span class="ln">35</span>    while (T) {
+<span class="ln">36</span>        if (T &amp; 1) res = mul(res, base);
+<span class="ln">37</span>        base = mul(base, base);
+<span class="ln">38</span>        T &gt;&gt;= 1;
+<span class="ln">39</span>    }
+<span class="ln">40</span>
+<span class="ln">41</span>    vector&lt;ull&gt; out = mul(res, a);   // cyclic convolution
+<span class="ln">42</span>    for (int i = 0; i &lt; N; i++)
+<span class="ln">43</span>        printf(&quot;%llu%c&quot;, out[i], i + 1 &lt; N ? &#x27; &#x27; : &#x27;\n&#x27;);
+<span class="ln">44</span>}
+</pre></details>
 </section>
 <section class="card" id="q20">
-<div class="card-head"><span class="num">20</span><h2>Collatz Budget Queries</h2><span class="en badge b-q">Question only</span><span class="si badge b-q">ප්‍රශ්නය විතරයි</span></div>
-<div class="meta">PDF: <code>collatz-budget-queries-English.pdf</code></div>
+<div class="card-head"><span class="num">20</span><h2>Collatz Budget Queries</h2><span class="en badge b-code">Code explained</span><span class="si badge b-code">Code පැහැදිලි කළා</span></div>
+<div class="meta">PDF: <code>collatz-budget-queries-English.pdf</code> &nbsp;·&nbsp; <span class="en">Solution: </span><span class="si">Solution එක: </span><code>HR20_collatz_budget_queries.cpp</code></div>
 <div class="en"><h3>The question, simply</h3></div><div class="si"><h3>ප්‍රශ්නය සරලව</h3></div>
 <div class="en prose">
 <p>The Collatz step: if x is even, x becomes x/2; if x is odd, x becomes 3x + 1. Reaching 1 stops. (Starting at 1 takes 0 steps.)</p>
 <p>Each query (L, R, K) asks: <b>how many starting numbers n between L and R reach 1 in at most K steps?</b> Up to 200,000 queries, n up to 10<sup>6</sup>, K up to 1000. Numbers in the middle of a run may go above N.</p>
-<div class="ex"><b>Example:</b> (1, 10, 3): 1 takes 0 steps, 2 takes 1, 4 takes 2, 8 takes 3. Everything else in 1..10 takes more, so the answer is <b>4</b>. (3, 7, 5): 4 takes 2 and 5 takes 5 (5→16→8→4→2→1), the others take more: <b>2</b>. (1, 1, 0): <b>1</b>. (7, 7, 15): 7 needs 16 steps: <b>0</b>.</div>
-<p class="muted">Our code for this question is not in the folder, so there is no code explanation here.</p></div><div class="si prose">
+<div class="ex"><b>Example:</b> (1, 10, 3): 1 takes 0 steps, 2 takes 1, 4 takes 2, 8 takes 3. Everything else in 1..10 takes more, so the answer is <b>4</b>. (3, 7, 5): 4 takes 2 and 5 takes 5 (5→16→8→4→2→1), the others take more: <b>2</b>. (1, 1, 0): <b>1</b>. (7, 7, 15): 7 needs 16 steps: <b>0</b>.</div></div><div class="si prose">
 <p>Collatz පියවර: x ඉරට්ටේ නම් x/2, ඔත්තේ නම් 3x + 1. 1 ට ආවාම නවතිනවා. (1 ඉඳන් පටන් ගත්තොත් පියවර 0.)</p>
 <p>හැම query (L, R, K) එකකින්ම අහන්නේ: <b>L ත් R ත් අතර, පියවර K කට හෝ ඊට අඩුවෙන් 1 ට එන පටන් ගන්න අංක n කීයක් තියෙනවද?</b> Queries 200,000 වෙනකම්, n 10<sup>6</sup> වෙනකම්, K 1000 වෙනකම්. අතරමැද අංක N ට වඩා ලොකු වෙන්න පුළුවන්.</p>
-<div class="ex"><b>උදාහරණය:</b> (1, 10, 3): 1 → පියවර 0, 2 → 1, 4 → 2, 8 → 3. උත්තරය <b>4</b>. (3, 7, 5): 4 (2) සහ 5 (5): <b>2</b>. (1, 1, 0): <b>1</b>. (7, 7, 15): 7 ට පියවර 16ක් ඕනේ: <b>0</b>.</div>
-<p class="muted">මේ ප්‍රශ්නයේ අපේ code එක folder එකේ නෑ, ඒ නිසා code විස්තරයක් නෑ.</p></div>
+<div class="ex"><b>උදාහරණය:</b> (1, 10, 3): 1 → පියවර 0, 2 → 1, 4 → 2, 8 → 3. උත්තරය <b>4</b>. (3, 7, 5): 4 (2) සහ 5 (5): <b>2</b>. (1, 1, 0): <b>1</b>. (7, 7, 15): 7 ට පියවර 16ක් ඕනේ: <b>0</b>.</div></div>
+<div class="en"><h3>Main idea</h3></div><div class="si"><h3>ප්‍රධාන අදහස</h3></div>
+<div class="en prose idea"><p>First compute <b>steps[n]</b> (how many Collatz steps n needs to reach 1) for every n ≤ N. We save work by stopping as soon as the value drops <b>below n</b>, because that smaller number's step count is already known. Then answer queries <b>offline</b>: sort them by K, and add the numbers into a <b>Fenwick tree (BIT)</b> in order of their step count. When all numbers with steps ≤ K are in the BIT, the answer for [L, R] is a range count.</p></div><div class="si prose idea"><p>මුලින්ම N ට අඩු හැම n එකකටම <b>steps[n]</b> (n, 1 ට එන්න ඕනේ Collatz steps ගණන) හොයනවා. අගය <b>n ට වඩා අඩු</b> වුණු ගමන් නවත්තනවා, මොකද ඒ පොඩි අංකයේ steps ගණන දැනටමත් දන්නවා. ඊට පස්සේ queries <b>offline</b>: K එකෙන් sort කරලා, අංක ඒවයේ steps ගණනේ පිළිවෙළට <b>Fenwick tree (BIT)</b> එකකට දානවා. Steps ≤ K අංක ඔක්කොම BIT එකේ තියෙනකොට [L, R] ට උත්තරය range count එකක්.</p></div>
+<div class="en"><h3>How the code works, step by step</h3></div><div class="si"><h3>Code එක වැඩ කරන විදිහ, පියවරෙන් පියවර</h3></div>
+<div class="en"><ol class='steps'><li><b>Read</b> N and Q.</li><li><b>Steps with memory.</b> For n = 2..N, run Collatz from x = n (as long long, because 3x + 1 can get large), counting c, <b>until x &lt; n</b>. Then <code>st[n] = c + st[x]</code>. st[1] = 0. <code>mx</code> = the biggest step count.</li><li><b>Group numbers by step count:</b> <code>byStep[s]</code> = all n with st[n] = s.</li><li><b>Read queries</b> and group them by <code>min(K, mx)</code> (a budget above mx already includes every number).</li><li><b>Sweep k = 0..mx:</b> add every n in <code>byStep[k]</code> to the BIT (<code>upd(n)</code>), then answer every query with this k: <code>qry(R) − qry(L − 1)</code> = how many added numbers lie in [L, R].</li><li><b>Print</b> the answers in input order.</li></ol></div><div class="si"><ol class='steps'><li>N සහ Q <b>කියවනවා</b>.</li><li><b>මතකය එක්ක steps.</b> n = 2..N ට, x = n ඉඳන් Collatz යනවා (3x + 1 ලොකු වෙන්න පුළුවන් නිසා long long), c ගණන් කරමින්, <b>x &lt; n වෙනකම්</b>. ඊට පස්සේ <code>st[n] = c + st[x]</code>. st[1] = 0. <code>mx</code> = ලොකුම steps ගණන.</li><li><b>අංක steps ගණනෙන් group කරනවා:</b> <code>byStep[s]</code> = st[n] = s වෙන හැම n එකක්ම.</li><li><b>Queries කියවලා</b> <code>min(K, mx)</code> එකෙන් group කරනවා (mx ට වැඩි budget එකකට හැම අංකයක්ම ඇතුළත්).</li><li><b>k = 0..mx sweep:</b> <code>byStep[k]</code> එකේ හැම n එකක්ම BIT එකට දානවා (<code>upd(n)</code>), ඊට පස්සේ මේ k තියෙන හැම query එකකටම: <code>qry(R) − qry(L − 1)</code> = [L, R] ඇතුලේ දාපු අංක ගණන.</li><li><b>උත්තර</b> input පිළිවෙළට print කරනවා.</li></ol></div>
+<div class="en"><p class='cx'><b>Speed:</b> Computing all steps is fast in practice (each n stops once it falls below itself). The sweep is O((N + Q) log N).</p></div><div class="si"><p class='cx'><b>වේගය:</b> Steps ඔක්කොම හොයන එක ප්‍රායෝගිකව වේගවත් (හැම n එකක්ම තමන්ට වඩා පහළට වැටුණු ගමන් නවතිනවා). Sweep එක O((N + Q) log N).</p></div>
+<div class="en"><h3>Likely viva questions</h3></div><div class="si"><h3>Viva එකේ අහන්න පුළුවන් ප්‍රශ්න</h3></div>
+<div class="en"><details class='qa'><summary>Why stop when x &lt; n?</summary><div>We fill st[] in increasing order, so every number below n already has its final step count. Adding it saves repeating the rest of the path.</div></details><details class='qa'><summary>Why long long for x?</summary><div>Starting values up to 10<sup>6</sup> can climb to tens of billions before falling, which does not fit in a 32-bit int.</div></details><details class='qa'><summary>Why sort queries by K?</summary><div>The set “numbers with steps ≤ K” only grows as K grows, so we add each number once and never remove anything.</div></details><details class='qa'><summary>What does “within at most K” mean for the boundary?</summary><div>A number that needs exactly K steps counts, which is why numbers with st = k are added before answering queries with that k.</div></details></div><div class="si"><details class='qa'><summary>x &lt; n වුණාම නවත්තන්නේ ඇයි?</summary><div>st[] එක වැඩිවෙන පිළිවෙළට පුරවන නිසා n ට අඩු හැම අංකයකටම අන්තිම steps ගණන දැනටමත් තියෙනවා. ඒක එකතු කළාම path එකේ ඉතුරු කොටස ආයේ යන්න ඕනේ නෑ.</div></details><details class='qa'><summary>x ට long long ඇයි?</summary><div>10<sup>6</sup> වෙනකම් අංක වැටෙන්න කලින් බිලියන දහස් ගණන් වෙනකම් නගින්න පුළුවන්, 32-bit int එකකට ගැලපෙන්නේ නෑ.</div></details><details class='qa'><summary>Queries K එකෙන් sort කරන්නේ ඇයි?</summary><div>“steps ≤ K අංක” set එක K වැඩි වෙනකොට වැඩි වෙනවා විතරයි, ඉතින් හැම අංකයක්ම එක පාරක් දානවා, කිසි දෙයක් අයින් කරන්නේ නෑ.</div></details><details class='qa'><summary>“උපරිම K” කියන මායිම?</summary><div>හරියටම steps K ක් ඕනේ අංකයත් ගණන් වෙනවා, ඒ නිසා st = k අංක, ඒ k තියෙන queries වලට උත්තර දෙන්න කලින් දානවා.</div></details></div>
+<details class="code"><summary><span class="en">Show the full code:</span><span class="si">සම්පූර්ණ code එක බලන්න:</span> <code>HR20_collatz_budget_queries.cpp</code> (44 <span class="en">lines</span><span class="si">පේළි</span>)</summary><pre><span class="ln">1</span>#include &lt;bits/stdc++.h&gt;
+<span class="ln">2</span>using namespace std;
+<span class="ln">3</span>
+<span class="ln">4</span>int N, Q;
+<span class="ln">5</span>vector&lt;int&gt; bit;
+<span class="ln">6</span>void upd(int i){ for(; i &lt;= N; i += i &amp; -i) bit[i]++; }
+<span class="ln">7</span>int qry(int i){ int s = 0; for(; i &gt; 0; i -= i &amp; -i) s += bit[i]; return s; }
+<span class="ln">8</span>
+<span class="ln">9</span>int main(){
+<span class="ln">10</span>    scanf(&quot;%d %d&quot;, &amp;N, &amp;Q);
+<span class="ln">11</span>
+<span class="ln">12</span>    vector&lt;int&gt; st(N + 1, 0);
+<span class="ln">13</span>    int mx = 0;
+<span class="ln">14</span>    for(int n = 2; n &lt;= N; n++){
+<span class="ln">15</span>        long long x = n;
+<span class="ln">16</span>        int c = 0;
+<span class="ln">17</span>        while(x &gt;= n){
+<span class="ln">18</span>            x = (x &amp; 1) ? 3 * x + 1 : x &gt;&gt; 1;
+<span class="ln">19</span>            c++;
+<span class="ln">20</span>        }
+<span class="ln">21</span>        st[n] = c + st[(int)x];
+<span class="ln">22</span>        mx = max(mx, st[n]);
+<span class="ln">23</span>    }
+<span class="ln">24</span>
+<span class="ln">25</span>    vector&lt;vector&lt;int&gt;&gt; byStep(mx + 1);
+<span class="ln">26</span>    for(int n = 1; n &lt;= N; n++) byStep[st[n]].push_back(n);
+<span class="ln">27</span>
+<span class="ln">28</span>    vector&lt;int&gt; L(Q), R(Q), ans(Q);
+<span class="ln">29</span>    vector&lt;vector&lt;int&gt;&gt; byK(mx + 1);
+<span class="ln">30</span>    for(int i = 0; i &lt; Q; i++){
+<span class="ln">31</span>        int k;
+<span class="ln">32</span>        scanf(&quot;%d %d %d&quot;, &amp;L[i], &amp;R[i], &amp;k);
+<span class="ln">33</span>        byK[min(k, mx)].push_back(i);
+<span class="ln">34</span>    }
+<span class="ln">35</span>
+<span class="ln">36</span>    bit.assign(N + 1, 0);
+<span class="ln">37</span>    for(int k = 0; k &lt;= mx; k++){
+<span class="ln">38</span>        for(int n : byStep[k]) upd(n);
+<span class="ln">39</span>        for(int i : byK[k]) ans[i] = qry(R[i]) - qry(L[i] - 1);
+<span class="ln">40</span>    }
+<span class="ln">41</span>
+<span class="ln">42</span>    for(int i = 0; i &lt; Q; i++) printf(&quot;%d\n&quot;, ans[i]);
+<span class="ln">43</span>    return 0;
+<span class="ln">44</span>}
+</pre></details>
 </section>
 <section class="card" id="q21">
-<div class="card-head"><span class="num">21</span><h2>The Collapsing Markov Attractor</h2><span class="en badge b-q">Question only</span><span class="si badge b-q">ප්‍රශ්නය විතරයි</span></div>
-<div class="meta">PDF: <code>the-collapsing-markov-attractor-English.pdf</code></div>
+<div class="card-head"><span class="num">21</span><h2>The Collapsing Markov Attractor</h2><span class="en badge b-code">Code explained</span><span class="si badge b-code">Code පැහැදිලි කළා</span></div>
+<div class="meta">PDF: <code>the-collapsing-markov-attractor-English.pdf</code> &nbsp;·&nbsp; <span class="en">Solution: </span><span class="si">Solution එක: </span><code>HR21_collapsing_markov_attractor.cpp</code></div>
+<div class="en note">For the PDF's sample our code prints 1327104, while the PDF shows 304677271. A plain matrix power of that sample matrix (checked separately) also gives 1327104, so the code matches the definition and the printed sample looks wrong.</div><div class="si note">PDF sample එකට අපේ code එක 1327104 print කරනවා, PDF එකේ තියෙන්නේ 304677271. ඒ sample matrix එක සාමාන්‍ය විදිහට power කළාමත් (වෙනම check කළා) 1327104 එනවා, ඉතින් code එක definition එකට ගැලපෙනවා, print කරපු sample එක වැරදි වගේ.</div>
 <div class="en"><h3>The question, simply</h3></div><div class="si"><h3>ප්‍රශ්නය සරලව</h3></div>
 <div class="en prose">
 <p>We get a K × K matrix M of whole numbers (mod 10<sup>9</sup>+7) and a number T (up to 10<sup>18</sup>). Find the entry in <b>row 1, column K of M<sup>T</sup></b> (M multiplied by itself T times), mod 10<sup>9</sup>+7.</p>
 <p>The special promise: M has <b>rank 1</b>. That means M = u × v<sup>T</sup>, so <b>every row is a multiple of the same row</b> (the story calls this “every state transitions proportionally”).</p>
-<div class="ex"><b>Example:</b> K = 3, T = 4, M = [[6, 8, 12], [9, 12, 18], [15, 20, 30]]. Every row is a multiple of [3, 4, 6] (2×, 3×, 5×). The expected answer is <b>304677271</b>. Remember that M<sup>0</sup> is the identity matrix.</div>
-<p class="muted">Our code for this question is not in the folder, so there is no code explanation here.</p></div><div class="si prose">
+<div class="ex"><b>Example:</b> K = 3, T = 4, M = [[6, 8, 12], [9, 12, 18], [15, 20, 30]]. Every row is a multiple of [3, 4, 6] (2×, 3×, 5×). The expected answer is <b>304677271</b>. Remember that M<sup>0</sup> is the identity matrix.</div></div><div class="si prose">
 <p>K × K matrix M එකක් (mod 10<sup>9</sup>+7) සහ T අංකයක් (10<sup>18</sup> වෙනකම්) දෙනවා. <b>M<sup>T</sup> වල row 1, column K entry එක</b> (M, T පාරක් තමන්වම ගුණ කළාම) mod 10<sup>9</sup>+7 හොයන්න.</p>
 <p>විශේෂ පොරොන්දුව: M <b>rank 1</b>. ඒ කියන්නේ M = u × v<sup>T</sup>, ඉතින් <b>හැම row එකක්ම එකම row එකක ගුණාකාරයක්</b>.</p>
-<div class="ex"><b>උදාහරණය:</b> K = 3, T = 4, M = [[6, 8, 12], [9, 12, 18], [15, 20, 30]]. හැම row එකක්ම [3, 4, 6] ගේ ගුණාකාරයක් (2×, 3×, 5×). උත්තරය <b>304677271</b>. M<sup>0</sup> කියන්නේ identity matrix එක කියලා මතක තියාගන්න.</div>
-<p class="muted">මේ ප්‍රශ්නයේ අපේ code එක folder එකේ නෑ, ඒ නිසා code විස්තරයක් නෑ.</p></div>
+<div class="ex"><b>උදාහරණය:</b> K = 3, T = 4, M = [[6, 8, 12], [9, 12, 18], [15, 20, 30]]. හැම row එකක්ම [3, 4, 6] ගේ ගුණාකාරයක් (2×, 3×, 5×). උත්තරය <b>304677271</b>. M<sup>0</sup> කියන්නේ identity matrix එක කියලා මතක තියාගන්න.</div></div>
+<div class="en"><h3>Main idea</h3></div><div class="si"><h3>ප්‍රධාන අදහස</h3></div>
+<div class="en prose idea"><p>Rank 1 means <b>M = u × v<sup>T</sup></b> (a column times a row). Then <code>M² = u (v<sup>T</sup> u) v<sup>T</sup> = (v<sup>T</sup> u) × M</code>, and <code>v<sup>T</sup> u = Σ u<sub>i</sub> v<sub>i</sub></code> is exactly the sum of the diagonal, the <b>trace</b> of M. Repeating this: <b>M<sup>T</sup> = trace<sup>T−1</sup> × M</b> for T ≥ 1. So the answer is just <code>trace<sup>T−1</sup> × M[1][K]</code>, with one fast power. No matrix multiplication at all.</p></div><div class="si prose idea"><p>Rank 1 කියන්නේ <b>M = u × v<sup>T</sup></b> (column එකක් × row එකක්). එතකොට <code>M² = u (v<sup>T</sup> u) v<sup>T</sup> = (v<sup>T</sup> u) × M</code>, <code>v<sup>T</sup> u = Σ u<sub>i</sub> v<sub>i</sub></code> කියන්නේ හරියටම diagonal එකේ එකතුව, M ගේ <b>trace</b> එක. මේක නැවත නැවත කළාම: T ≥ 1 ට <b>M<sup>T</sup> = trace<sup>T−1</sup> × M</b>. ඉතින් උත්තරය <code>trace<sup>T−1</sup> × M[1][K]</code>, එක fast power එකකින්. Matrix ගුණ කිරීමක්ම නෑ.</p></div>
+<div class="en"><h3>How the code works, step by step</h3></div><div class="si"><h3>Code එක වැඩ කරන විදිහ, පියවරෙන් පියවර</h3></div>
+<div class="en"><ol class='steps'><li><b>Read</b> K and T, then the K × K matrix one number at a time (reduced mod 10<sup>9</sup>+7).</li><li><b>While reading,</b> add every diagonal entry (i = j) into <code>tr</code> (the trace) and remember the top-right entry M[1][K] as <code>corner</code>. The matrix itself is never stored.</li><li><b>T = 0:</b> M<sup>0</sup> is the identity, whose (1, K) entry is 1 only when K = 1. Print that.</li><li><b>Otherwise</b> print <code>power(tr, T − 1) × corner mod 10<sup>9</sup>+7</code>, where <code>power</code> is fast exponentiation (square and multiply).</li></ol></div><div class="si"><ol class='steps'><li>K සහ T <b>කියවලා</b>, K × K matrix එක එක අංකය ගානේ කියවනවා (mod 10<sup>9</sup>+7).</li><li><b>කියවනකොටම</b> diagonal entries (i = j) <code>tr</code> (trace) එකට එකතු කරලා, උඩ දකුණු entry M[1][K] <code>corner</code> විදිහට මතක තියාගන්නවා. Matrix එක save කරන්නේම නෑ.</li><li><b>T = 0:</b> M<sup>0</sup> identity එක, ඒකේ (1, K) entry එක 1 වෙන්නේ K = 1 නම් විතරයි. ඒක print කරනවා.</li><li><b>නැත්නම්</b> <code>power(tr, T − 1) × corner mod 10<sup>9</sup>+7</code> print කරනවා, <code>power</code> = fast exponentiation.</li></ol></div>
+<div class="en"><p class='cx'><b>Speed:</b> O(K²) to read the matrix plus O(log T) for the power.</p></div><div class="si"><p class='cx'><b>වේගය:</b> Matrix එක කියවන්න O(K²), power එකට O(log T).</p></div>
+<div class="en"><h3>Likely viva questions</h3></div><div class="si"><h3>Viva එකේ අහන්න පුළුවන් ප්‍රශ්න</h3></div>
+<div class="en"><details class='qa'><summary>Why is M<sup>T</sup> = trace<sup>T−1</sup> M?</summary><div>M = u v<sup>T</sup>, so M·M = u (v<sup>T</sup>u) v<sup>T</sup>. The middle part is one number, v<sup>T</sup>u = Σ u<sub>i</sub>v<sub>i</sub>, which is also Σ M[i][i] = trace. Each extra multiplication brings out one more factor of the trace.</div></details><details class='qa'><summary>Why not normal matrix power?</summary><div>K can be 500, so one multiplication is 1.25×10<sup>8</sup> operations and we would need about 120 of them. The rank-1 shortcut needs none.</div></details><details class='qa'><summary>What about T = 0?</summary><div>Any matrix to the power 0 is the identity, not trace<sup>−1</sup>·M, so it is handled separately.</div></details></div><div class="si"><details class='qa'><summary>M<sup>T</sup> = trace<sup>T−1</sup> M ඇයි?</summary><div>M = u v<sup>T</sup>, ඉතින් M·M = u (v<sup>T</sup>u) v<sup>T</sup>. මැද කොටස එක අංකයක්, v<sup>T</sup>u = Σ u<sub>i</sub>v<sub>i</sub>, ඒක Σ M[i][i] = trace එකටත් සමානයි. හැම අමතර ගුණ කිරීමකින්ම trace එකේ තව ගුණකයක් එනවා.</div></details><details class='qa'><summary>සාමාන්‍ය matrix power එකක් නැත්තේ ඇයි?</summary><div>K 500 වෙන්න පුළුවන්, එක ගුණ කිරීමකට operations 1.25×10<sup>8</sup>, ඒ වගේ 120 ක් විතර ඕනේ. Rank-1 කෙටි මඟට එකක්වත් ඕනේ නෑ.</div></details><details class='qa'><summary>T = 0 නම්?</summary><div>ඕනම matrix එකක 0 බලය identity එක, trace<sup>−1</sup>·M නෙවෙයි, ඒ නිසා වෙනම handle කරනවා.</div></details></div>
+<details class="code"><summary><span class="en">Show the full code:</span><span class="si">සම්පූර්ණ code එක බලන්න:</span> <code>HR21_collapsing_markov_attractor.cpp</code> (42 <span class="en">lines</span><span class="si">පේළි</span>)</summary><pre><span class="ln">1</span>#include &lt;bits/stdc++.h&gt;
+<span class="ln">2</span>using namespace std;
+<span class="ln">3</span>typedef long long ll;
+<span class="ln">4</span>const ll MOD = 1000000007LL;
+<span class="ln">5</span>
+<span class="ln">6</span>ll power(ll b, ll e) {
+<span class="ln">7</span>    ll r = 1;
+<span class="ln">8</span>    b %= MOD;
+<span class="ln">9</span>    while (e &gt; 0) {
+<span class="ln">10</span>        if (e &amp; 1) r = r * b % MOD;
+<span class="ln">11</span>        b = b * b % MOD;
+<span class="ln">12</span>        e &gt;&gt;= 1;
+<span class="ln">13</span>    }
+<span class="ln">14</span>    return r;
+<span class="ln">15</span>}
+<span class="ln">16</span>
+<span class="ln">17</span>int main() {
+<span class="ln">18</span>    ios::sync_with_stdio(false);
+<span class="ln">19</span>    cin.tie(nullptr);
+<span class="ln">20</span>
+<span class="ln">21</span>    int K;
+<span class="ln">22</span>    ll T;
+<span class="ln">23</span>    cin &gt;&gt; K &gt;&gt; T;
+<span class="ln">24</span>
+<span class="ln">25</span>    ll tr = 0, corner = 0;
+<span class="ln">26</span>    for (int i = 0; i &lt; K; i++) {
+<span class="ln">27</span>        for (int j = 0; j &lt; K; j++) {
+<span class="ln">28</span>            ll x;
+<span class="ln">29</span>            cin &gt;&gt; x;
+<span class="ln">30</span>            x %= MOD;
+<span class="ln">31</span>            if (i == j) tr = (tr + x) % MOD;       // trace
+<span class="ln">32</span>            if (i == 0 &amp;&amp; j == K - 1) corner = x;  // M[1][K]
+<span class="ln">33</span>        }
+<span class="ln">34</span>    }
+<span class="ln">35</span>
+<span class="ln">36</span>    if (T == 0) {                                   // M^0 = identity
+<span class="ln">37</span>        cout &lt;&lt; (K == 1 ? 1 : 0) &lt;&lt; &quot;\n&quot;;
+<span class="ln">38</span>        return 0;
+<span class="ln">39</span>    }
+<span class="ln">40</span>    cout &lt;&lt; power(tr, T - 1) * corner % MOD &lt;&lt; &quot;\n&quot;;
+<span class="ln">41</span>    return 0;
+<span class="ln">42</span>}
+</pre></details>
 </section>
 <section class="card" id="q22">
 <div class="card-head"><span class="num">22</span><h2>The Non-Euclidean Parity Nim</h2><span class="en badge b-code">Code explained</span><span class="si badge b-code">Code පැහැදිලි කළා</span></div>
