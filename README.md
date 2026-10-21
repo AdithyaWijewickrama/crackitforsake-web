@@ -1,10 +1,38 @@
 # haxtreme-web
 
-HaXtreme 5.0 defense guide (web page) and final solution files.
+HaXtreme 5.0 interactive bilingual (English + සිංහල) defense guide and final solution files.
 
-- `index.html`: the defense guide (same file as `HaXtreme_Defense_Guide.html`), so the repo can be served with GitHub Pages.
-- `QUESTIONS_EXPLAINED.md`: plain-language explanation of every question (English + Sinhala).
-- `solutions/`: the last version of each solution.
+Open `index.html` (works straight from disk or on GitHub Pages).
+
+## Files
+
+| File | What it is |
+|---|---|
+| `index.html` | Page layout: question list, side-by-side workspace, glossary drawer, language switch (EN / සිං / both) |
+| `styles.css` | Dark/light themes, syntax colours, split view, highlighted code lines |
+| `app.js` | Syntax highlighter, click-a-step-to-jump-to-code, animations, glossary tooltips |
+| `data.js` | Glossary of acronyms and hard words (EN + SI), original questions in EN + SI, step-to-line maps and animations |
+| `content.js` | Generated from `HaXtreme_Defense_Guide.html` (the explanations and code) |
+| `originals.js`, `img/` | Generated from `HaXtreme_5.0_All_40_Questions.pdf` (original text and diagrams) |
+| `HaXtreme_Defense_Guide.html` | Source of the explanations; still works as a single-file page |
+| `QUESTIONS_EXPLAINED.md` | Plain-language explanation of every question (English + Sinhala) |
+| `solutions/` | The last version of each solution |
+
+## Rebuilding the generated files
+
+After editing `HaXtreme_Defense_Guide.html`:
+
+```
+python tools/build_content.py
+```
+
+To re-extract the PDF text and diagrams (needs `pip install pymupdf`):
+
+```
+python tools/build_originals.py ../HaXtreme_5.0_All_40_Questions.pdf
+```
+
+Steps without a hand-written line range in `data.js` (`stepLines`) are matched to code lines automatically by the names in their `<code>` snippets.
 
 ## Which version was kept
 
