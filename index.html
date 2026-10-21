@@ -1,116 +1,111 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HaXtreme 5.0 — Interactive Bilingual Defense Workspace</title>
+  <title>HaXtreme 5.0 Defense Guide</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
-<body data-lang="both" data-theme="dark">
+<body data-lang="both">
 
-  <!-- Top Navigation Bar -->
   <header class="topbar">
-    <button class="icon-btn" id="menuBtn" title="Toggle Questions List">☰</button>
+    <button class="icon-btn" id="menuBtn" title="Show or hide the question list" aria-label="Question list">☰</button>
     <div class="brand">
+      <span class="brand-mark">HX</span>
       <h1>
-        <span class="en">HaXtreme 5.0: Interactive Code-Defense Workspace</span>
-        <span class="si">HaXtreme 5.0: අන්තර්ක්‍රියාකාරී Code-Defense වැඩබිම</span>
+        <span class="en">HaXtreme 5.0 <small>Code-Defense Guide</small></span>
+        <span class="si">HaXtreme 5.0 <small>Code එක විස්තර කරන මඟපෙන්වීම</small></span>
       </h1>
     </div>
 
     <div class="toolbar-actions">
-      <!-- Import Original HTML Button (auto-loads or lets user pick if file:// blocks fetch) -->
-      <label class="import-btn" id="importLabel" title="Load HaXtreme_Defense_Guide.html if opened via file://">
-        📂 <span class="en">Load Original HTML</span><span class="si">මුල් HTML ගොනුව</span>
-        <input type="file" id="htmlFileInput" accept=".html,.htm" hidden>
-      </label>
-
-      <!-- Glossary & Acronyms Drawer Toggle -->
+      <button class="action-btn toggle-btn" id="navToggle" aria-pressed="true" title="Show or hide the question list">
+        <span class="en">Questions</span><span class="si">ප්‍රශ්න ලැයිස්තුව</span>
+      </button>
+      <button class="action-btn toggle-btn" id="codeToggle" aria-pressed="true" title="Show or hide the code of every question">
+        <span class="en">Code</span><span class="si">Code</span>
+      </button>
       <button class="action-btn" id="glossaryBtn">
-        📖 <span class="en">Acronyms & Hard Words</span><span class="si">කෙටි යෙදුම් සහ අමාරු වචන</span>
+        📖 <span class="en">Acronyms &amp; hard words</span><span class="si">කෙටි යෙදුම් සහ අමාරු වචන</span>
       </button>
 
-      <!-- Language Selector: EN / SI / BOTH -->
-      <div class="seg" role="group" aria-label="Language Mode">
+      <div class="seg" role="group" aria-label="Language">
         <button data-set-lang="en">English</button>
         <button data-set-lang="si">සිංහල</button>
         <button data-set-lang="both" class="on">EN + සිං</button>
       </div>
 
-      <!-- Theme Toggle -->
-      <button class="icon-btn" id="themeBtn" title="Toggle Dark/Light Theme">🌗</button>
+      <button class="icon-btn" id="themeBtn" title="Light / dark theme" aria-label="Light or dark theme">🌗</button>
+      <input type="file" id="htmlFileInput" accept=".html,.htm" hidden>
     </div>
   </header>
 
-  <!-- Main Layout Grid -->
   <div class="workspace-grid">
-    <!-- Left Sidebar TOC -->
     <nav id="tocNav" class="toc-nav">
       <div class="toc-search-box">
-        <input type="search" id="tocSearch" placeholder="Search Q1–Q40, algorithm, acronym...">
+        <input type="search" id="tocSearch" placeholder="Search: Q12, BFS, treap, segment tree...">
       </div>
       <div class="legend">
-        <span class="en"><b>Green</b> = Code + Line-Click Sync · <b>Blue</b> = Animated</span>
-        <span class="si"><b>කොළ</b> = Code + පේළි සබැඳි · <b>නිල්</b> = සජීවීකරණ සහිතයි</span>
+        <span class="en"><b class="lg-code">●</b> has code &nbsp; <b class="lg-anim">●</b> has an animation</span>
+        <span class="si"><b class="lg-code">●</b> Code තියෙනවා &nbsp; <b class="lg-anim">●</b> Animation තියෙනවා</span>
       </div>
       <div id="tocList"></div>
     </nav>
 
-    <!-- Center + Right: Questions & Side-by-Side Code Workspace -->
     <main id="mainContent" class="main-content">
-      <!-- Hero Intro Banner -->
       <section class="intro-banner">
         <div class="en">
-          <h2>How to Use This Interactive Defense Guide</h2>
+          <h2>How to use this guide</h2>
           <ul>
-            <li><b>Click Any Explanation Step:</b> Clicking a numbered step on the left automatically scrolls the right-hand code editor to those exact lines and highlights them!</li>
-            <li><b>Side-by-Side View:</b> Read the original question, Sinhala translation, visual animation, and explanation on the left while viewing the syntax-highlighted code on the right.</li>
-            <li><b>Interactive Animations:</b> Use the <b>▶ Play</b>, <b>⏭ Step</b>, and <b>↺ Reset</b> buttons inside the visual boxes to watch how the algorithm works step by step.</li>
-            <li><b>Acronyms & Hard Words:</b> Click any dotted term or open the <b>📖 Acronyms & Hard Words</b> drawer at the top for instant bilingual definitions and examples.</li>
+            <li><b>Click any step</b> in "How the code works": the code on the right jumps to those lines and lights them up.</li>
+            <li><b>Side by side:</b> read the question, the diagrams and the explanation on the left while the coloured code stays on the right.</li>
+            <li><b>Animations:</b> use <b>▶ Play</b>, <b>⏭ Step</b> and <b>↺ Reset</b> to watch an algorithm one step at a time.</li>
+            <li><b>Underlined words</b> are acronyms or hard words. Point at one for a short meaning, or open <b>📖 Acronyms &amp; hard words</b> for the full list with examples.</li>
+            <li><b>Questions</b> and <b>Code</b> at the top hide or show the question list and all the code. Each question also has its own <b>Hide code</b> button.</li>
           </ul>
         </div>
         <div class="si">
-          <h2>මෙම අන්තර්ක්‍රියාකාරී මඟපෙන්වීම භාවිතා කරන ආකාරය</h2>
+          <h2>මේ මඟපෙන්වීම පාවිච්චි කරන විදිහ</h2>
           <ul>
-            <li><b>ඕනෑම පියවරක් මත Click කරන්න:</b> වම් පැත්තේ ඇති පැහැදිලි කිරීමේ වාක්‍යයක් මත click කළ විට, දකුණු පැත්තේ ඇති code එකේ අදාළ පේළි වෙත ස්වයංක්‍රීයව ගොස් ඒවා දීප්තිමත් කර පෙන්වයි!</li>
-            <li><b>දෙපසින් එකවර බලන්න (Side-by-Side):</b> වම් පැත්තෙන් මුල් ප්‍රශ්නය, සිංහල පරිවර්තනය, රූප සටහන් සහ පැහැදිලි කිරීම කියවන අතරතුර දකුණු පැත්තෙන් වර්ණවත් කළ code එක බලන්න.</li>
-            <li><b>සජීවීකරණ (Animations):</b> <b>▶ Play</b>, <b>⏭ Step</b>, සහ <b>↺ Reset</b> බොත්තම් මගින් algorithm එක පියවරෙන් පියවර ක්‍රියා කරන හැටි රූපමය වශයෙන් නරඹන්න.</li>
-            <li><b>කෙටි යෙදුම් සහ අමාරු වචන:</b> ඉහළ ඇති <b>📖 කෙටි යෙදුම් සහ අමාරු වචන</b> බොත්තම ඔබා සියලුම තාක්ෂණික වචන සරල උදාහරණ සහිතව ඉංග්‍රීසි සහ සිංහලෙන් කියවන්න.</li>
+            <li><b>"Code එක වැඩ කරන විදිහ" එකේ ඕනෑම පියවරක් click කරන්න:</b> දකුණු පැත්තේ code එක ඒ පේළි වලට ගිහින් ඒවා highlight කරනවා.</li>
+            <li><b>දෙපැත්තෙන්ම එකවර:</b> වම් පැත්තේ ප්‍රශ්නය, රූප සටහන් සහ විස්තරය කියවනකොට, දකුණු පැත්තේ පාට කරපු code එක පේනවා.</li>
+            <li><b>Animations:</b> <b>▶ Play</b>, <b>⏭ Step</b>, <b>↺ Reset</b> බොත්තම් වලින් algorithm එක පියවරෙන් පියවර වැඩ කරන හැටි බලන්න.</li>
+            <li><b>යටින් ඉරි ඇඳපු වචන</b> කෙටි යෙදුම් හෝ අමාරු වචන. Mouse එක ඒක උඩට ගෙනිච්චොත් කෙටි තේරුම පේනවා. උදාහරණ එක්ක සම්පූර්ණ ලැයිස්තුවට <b>📖 කෙටි යෙදුම් සහ අමාරු වචන</b> ඔබන්න.</li>
+            <li>උඩ තියෙන <b>ප්‍රශ්න ලැයිස්තුව</b> සහ <b>Code</b> බොත්තම් වලින් ප්‍රශ්න ලැයිස්තුවයි ඔක්කොම code එකයි හංගන්න/පෙන්නන්න පුළුවන්. හැම ප්‍රශ්නයකටම වෙනම <b>Code එක හංගන්න</b> බොත්තමකුත් තියෙනවා.</li>
           </ul>
         </div>
         <div class="stats-bar" id="statsBar"></div>
       </section>
 
-      <!-- Dynamic Question Cards Container -->
       <div id="questionsContainer"></div>
     </main>
   </div>
 
-  <!-- Slide-Over Drawer for Acronyms & Hard Words -->
   <aside class="drawer-backdrop" id="glossaryBackdrop" hidden>
     <div class="drawer-panel">
       <div class="drawer-head">
         <h2>
-          <span class="en">📖 Encyclopedia of Acronyms & Hard Words</span>
-          <span class="si">📖 කෙටි යෙදුම් සහ අමාරු වචන විශ්වකෝෂය</span>
+          <span class="en">📖 Acronyms &amp; hard words</span>
+          <span class="si">📖 කෙටි යෙදුම් සහ අමාරු වචන</span>
         </h2>
-        <button class="icon-btn" id="closeGlossaryBtn">✕</button>
+        <button class="icon-btn" id="closeGlossaryBtn" aria-label="Close">✕</button>
       </div>
       <div class="drawer-filter">
-        <input type="search" id="glossarySearch" placeholder="Filter acronyms or terms (e.g. CDQ, BIT, SAM, Monotonic, Voronoi)...">
+        <input type="search" id="glossarySearch" placeholder="Filter: BFS, CDQ, treap, Voronoi...">
       </div>
       <div class="drawer-body" id="glossaryList"></div>
     </div>
   </aside>
 
-  <!-- Floating Tooltip for Inline Glossary Terms -->
   <div id="termTooltip" class="term-tooltip" hidden></div>
 
-  <script src="content.js?v=3"></script>
-  <script src="originals.js?v=3"></script>
-  <script src="data.js?v=3"></script>
-  <script src="app.js?v=3"></script>
+  <script src="content.js?v=6"></script>
+  <script src="originals.js?v=6"></script>
+  <script src="glossary.js?v=6"></script>
+  <script src="data.js?v=6"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>

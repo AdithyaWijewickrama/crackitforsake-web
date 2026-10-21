@@ -124,30 +124,34 @@
   // ==========================================================================
   // 2. INLINE GLOSSARY TERM DECORATOR
   // ==========================================================================
-  const TERM_PATTERNS = [
-    { rx: /\b(monotonic stack)\b/gi, key: "Monotonic Stack" },
-    { rx: /\b(CDQ)\b/g, key: "CDQ" },
-    { rx: /\b(Fenwick tree|BIT)\b/gi, key: "BIT" },
-    { rx: /\b(LCA|lowest common ancestor)\b/gi, key: "LCA" },
-    { rx: /\b(Suffix Automaton|SAM)\b/gi, key: "SAM" },
-    { rx: /\b(Grundy|mex)\b/gi, key: "MEX / Grundy" },
-    { rx: /\b(Voronoi|Delaunay)\b/gi, key: "Voronoi & Delaunay" },
-    { rx: /\b(2-SAT|SCC|Kosaraju)\b/gi, key: "2-SAT & SCC" },
-    { rx: /\b(Li Chao tree)\b/gi, key: "Li Chao Tree" },
-    { rx: /\b(DSU)\b/g, key: "DSU with Rollback" },
-    { rx: /\b(implicit treap|treap)\b/gi, key: "Implicit Treap" },
-    { rx: /\b(NTT|Legendre symbol)\b/gi, key: "NTT & Legendre Symbol" },
-    { rx: /\b(FWHT|Walsh-Hadamard)\b/gi, key: "FWHT" }
-  ];
+  // One pattern per glossary entry (glossary.js: `match`, `cs` = case-sensitive)
+  const TERM_PATTERNS = (window.GLOSSARY_DATA || [])
+    .filter((g) => g.match)
+    .map((g) => ({ rx: new RegExp("\\b(?:" + g.match + ")(?![\\w-])", g.cs ? "g" : "gi"), key: g.term }));
 
+  // Wrap known terms in text (never inside tags). All patterns are matched on the original
+  // text, longest match first, so one term is never wrapped inside another.
   function decorateGlossaryTerms(html) {
-    // Avoid replacing inside HTML tags
-    return html.replace(/(>[^<]+<)/g, (segment) => {
-      let s = segment;
+    return html.replace(/>([^<]+)</g, (whole, text) => {
+      const hits = [];
       TERM_PATTERNS.forEach(({ rx, key }) => {
-        s = s.replace(rx, `<span class="glossary-term" data-term="${key}">$1</span>`);
+        rx.lastIndex = 0;
+        let m;
+        while ((m = rx.exec(text))) {
+          if (!m[0]) { rx.lastIndex++; continue; }
+          hits.push({ start: m.index, end: m.index + m[0].length, key });
+        }
       });
-      return s;
+      if (!hits.length) return whole;
+      hits.sort((x, y) => x.start - y.start || y.end - x.end);
+      let out = "", pos = 0;
+      hits.forEach((h) => {
+        if (h.start < pos) return;
+        out += text.slice(pos, h.start) +
+          `<span class="glossary-term" data-term="${h.key}">${text.slice(h.start, h.end)}</span>`;
+        pos = h.end;
+      });
+      return ">" + out + text.slice(pos) + "<";
     });
   }
 
@@ -280,7 +284,7 @@
           <details class="orig-box" open>
             <summary>
               <span class="en">📄 Original HackerRank Question & Sample (EN + සිංහල)</span>
-              <span class="si">📄 මුල් HackerRank ප්‍රශ්නය සහ නිදසුන් (EN + සිංහල)</span>
+              <span class="si">📄 මුල් HackerRank ප්‍රශ්නය සහ උදාහරණය</span>
             </summary>
             <div class="orig-content">
               <p class="en" style="white-space:pre-line">${enh.origEn}</p>
@@ -358,9 +362,13 @@
           <span class="q-num">${item.num}</span>
           <h2>${item.title}</h2>
           ${item.hasCode
-            ? `<span class="badge b-code"><span class="en">Interactive Code + Line Sync</span><span class="si">Code + පේළි සබැඳිය</span></span>`
-            : `<span class="badge b-q"><span class="en">Question & Guide</span><span class="si">ප්‍රශ්නය සහ විස්තරය</span></span>`}
-          ${enh.animFrames ? `<span class="badge b-anim">🎬 Animated</span>` : ""}
+            ? `<span class="badge b-code"><span class="en">With code</span><span class="si">Code එක සමඟ</span></span>`
+            : `<span class="badge b-q"><span class="en">Question only</span><span class="si">ප්‍රශ්නය විතරයි</span></span>`}
+          ${enh.animFrames ? `<span class="badge b-anim">🎬 <span class="en">Animated</span><span class="si">Animation සහිතයි</span></span>` : ""}
+          ${item.hasCode ? `<button class="code-toggle" data-code-toggle="${item.qid}" aria-pressed="true">
+            <span class="when-shown"><span class="en">Hide code</span><span class="si">Code එක හංගන්න</span></span>
+            <span class="when-hidden"><span class="en">Show code</span><span class="si">Code එක පෙන්නන්න</span></span>
+          </button>` : ""}
         </div>
         <div class="meta" style="margin-bottom:12px;color:var(--muted);font-size:13.5px">${item.metaHtml}</div>
 
@@ -377,7 +385,7 @@
               <span>💻 <code>${item.codeFile}</code></span>
               <span class="code-jump-status" id="status-${item.qid}">
                 <span class="en">Click any step on the left to jump to code lines</span>
-                <span class="si">වම් පස ඕනෑම පියවරක් click කර අදාළ code පේළි බලන්න</span>
+                <span class="si">වම් පැත්තේ පියවරක් click කළාම ඒකට අදාළ code පේළි මෙතන පෙන්නනවා</span>
               </span>
             </div>
             <div class="code-scroll-container" id="code-scroll-${item.qid}">
@@ -419,11 +427,12 @@
     });
 
     statsBar.innerHTML = `
-      <span class="stat-pill">📚 Questions Loaded: <b>${items.length}</b></span>
-      <span class="stat-pill">💻 Colorful Side-by-Side Codes: <b>${codeCount}</b></span>
-      <span class="stat-pill">🎬 Interactive Visual Animations: <b>${animCount}</b></span>
-      <span class="stat-pill">📖 Bilingual Glossary Terms: <b>${window.GLOSSARY_DATA.length}</b></span>
+      <span class="stat-pill"><span class="en">Questions</span><span class="si">ප්‍රශ්න</span> <b>${items.length}</b></span>
+      <span class="stat-pill"><span class="en">Solutions with code</span><span class="si">Code තියෙන විසඳුම්</span> <b>${codeCount}</b></span>
+      <span class="stat-pill"><span class="en">Animations</span><span class="si">Animations</span> <b>${animCount}</b></span>
+      <span class="stat-pill"><span class="en">Glossary terms</span><span class="si">වචන මාලාවේ වචන</span> <b>${window.GLOSSARY_DATA.length}</b></span>
     `;
+    if (window.HX_applyCodePref) window.HX_applyCodePref();
   }
 
   // ==========================================================================
@@ -568,20 +577,69 @@
   // ==========================================================================
   // 8. UI CONTROLS (LANGUAGE, THEME, SEARCH, LEGACY HTML IMPORT)
   // ==========================================================================
+  const store = {
+    get(k) { try { return localStorage.getItem("hx-" + k); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem("hx-" + k, v); } catch (e) {} }
+  };
+
+  function setLang(lang) {
+    document.body.dataset.lang = lang;
+    document.documentElement.lang = lang === "si" ? "si" : "en";
+    document.querySelectorAll("[data-set-lang]").forEach((b) => b.classList.toggle("on", b.dataset.setLang === lang));
+    store.set("lang", lang);
+  }
   document.querySelectorAll("[data-set-lang]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      document.body.dataset.lang = btn.dataset.setLang;
-      document.querySelectorAll("[data-set-lang]").forEach((b) => b.classList.toggle("on", b === btn));
-    });
+    btn.addEventListener("click", () => setLang(btn.dataset.setLang));
   });
+  if (["en", "si", "both"].includes(store.get("lang"))) setLang(store.get("lang"));
 
+  // the CSS reads the theme from <html data-theme>
+  function setTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    store.set("theme", theme);
+  }
   document.getElementById("themeBtn").addEventListener("click", () => {
-    document.body.dataset.theme = document.body.dataset.theme === "light" ? "dark" : "light";
+    setTheme(document.documentElement.dataset.theme === "light" ? "dark" : "light");
   });
+  setTheme(store.get("theme") === "light" ? "light" : "dark");
 
+  // Navigation: a drawer on narrow screens, a collapsible column on wide ones
+  function setNavHidden(hidden) {
+    document.body.classList.toggle("nav-hidden", hidden);
+    document.getElementById("navToggle").setAttribute("aria-pressed", String(!hidden));
+    store.set("nav", hidden ? "hidden" : "shown");
+  }
   document.getElementById("menuBtn").addEventListener("click", () => {
-    document.getElementById("tocNav").classList.toggle("open");
+    if (window.matchMedia("(max-width: 820px)").matches) document.getElementById("tocNav").classList.toggle("open");
+    else setNavHidden(!document.body.classList.contains("nav-hidden"));
   });
+  document.getElementById("navToggle").addEventListener("click", () => {
+    setNavHidden(!document.body.classList.contains("nav-hidden"));
+  });
+  document.getElementById("tocNav").addEventListener("click", (e) => {
+    if (e.target.closest("a")) document.getElementById("tocNav").classList.remove("open");
+  });
+  setNavHidden(store.get("nav") === "hidden");
+
+  // Code: one switch for every question, plus a button on each question
+  function setAllCodeHidden(hidden) {
+    document.body.classList.toggle("code-hidden-all", hidden);
+    document.querySelectorAll(".q-card").forEach((c) => c.classList.toggle("code-hidden", hidden));
+    document.getElementById("codeToggle").setAttribute("aria-pressed", String(!hidden));
+    document.querySelectorAll("[data-code-toggle]").forEach((b) => b.setAttribute("aria-pressed", String(!hidden)));
+    store.set("code", hidden ? "hidden" : "shown");
+  }
+  document.getElementById("codeToggle").addEventListener("click", () => {
+    setAllCodeHidden(!document.body.classList.contains("code-hidden-all"));
+  });
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-code-toggle]");
+    if (!btn) return;
+    const card = btn.closest(".q-card");
+    const hidden = card.classList.toggle("code-hidden");
+    btn.setAttribute("aria-pressed", String(!hidden));
+  });
+  window.HX_applyCodePref = () => setAllCodeHidden(store.get("code") === "hidden");
 
   document.getElementById("glossaryBtn").addEventListener("click", () => {
     renderGlossary();

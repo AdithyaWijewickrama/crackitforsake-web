@@ -11,7 +11,8 @@ Open `index.html` (works straight from disk or on GitHub Pages).
 | `index.html` | Page layout: question list, side-by-side workspace, glossary drawer, language switch (EN / සිං / both) |
 | `styles.css` | Dark/light themes, syntax colours, split view, highlighted code lines |
 | `app.js` | Syntax highlighter, click-a-step-to-jump-to-code, animations, glossary tooltips |
-| `data.js` | Glossary of acronyms and hard words (EN + SI), original questions in EN + SI, step-to-line maps and animations |
+| `glossary.js` | Acronyms and hard words (EN + SI) with examples; `match` decides which words get underlined in the explanations |
+| `data.js` | Original questions in EN + SI, step-to-line maps and animations |
 | `content.js` | Generated from `HaXtreme_Defense_Guide.html` (the explanations and code) |
 | `originals.js`, `img/` | Generated from `HaXtreme_5.0_All_40_Questions.pdf` (original text and diagrams) |
 | `HaXtreme_Defense_Guide.html` | Source of the explanations; still works as a single-file page |
